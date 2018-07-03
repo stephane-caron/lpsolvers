@@ -65,16 +65,16 @@ the ``solve_lp`` function:
     from lpsolvers import solve_lp
 
     c = array([1., 2., 3.])
-    A = array([[1., 2., -1.], [2., 0., 1.], [1., 2., 1.], [-1., -1., -1.]])
-    b = array([4., 1., 3., 2.])
+    G = array([[1., 2., -1.], [2., 0., 1.], [1., 2., 1.], [-1., -1., -1.]])
+    h = array([4., 1., 3., 2.])
 
-    print "LP solution:", solve_lp(c, A, b)
+    print "LP solution:", solve_lp(c, G, h)
 
 """
 
 setup(
     name='lpsolvers',
-    version='0.8.2',
+    version='0.8.3',
     description="Wrapper for Linear Programming solvers with a unified API",
     long_description=long_description,
     url="https://github.com/stephane-caron/lpsolvers",
