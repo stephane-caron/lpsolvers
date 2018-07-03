@@ -70,12 +70,13 @@ the ``solve_lp`` function:
 
     print "LP solution:", solve_lp(c, G, h)
 
+This example outputs the solution ``[2.2 -0.8 -3.4]``.
 """
 
 setup(
     name='lpsolvers',
-    version='0.8.3',
-    description="Wrapper for Linear Programming solvers with a unified API",
+    version='0.8.6',
+    description="Linear Programming solvers in Python with a unified API",
     long_description=long_description,
     url="https://github.com/stephane-caron/lpsolvers",
     author="Stéphane Caron",
