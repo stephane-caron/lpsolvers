@@ -61,14 +61,14 @@ def cdd_solve_lp(c, G, h, A=None, b=None):
     ValueError
         If the LP is not feasible.
     """
-    v = h.reshape((h.shape[0], 1))
-    U = G
     if A is not None:
-        v = hstack([v, b, -b])
-        U = vstack([U, A, -A])
-        mat = cdd.Matrix(hstack([v, -U]), number_type='float')
+        v = hstack([h, b, -b])
+        U = vstack([G, A, -A])
     else:  # no equality constraint
-        mat = cdd.Matrix(hstack([v, -U]), number_type='float')
+        v = h
+        U = G
+    v = v.reshape((v.shape[0], 1))
+    mat = cdd.Matrix(hstack([v, -U]), number_type='float')
     mat.obj_type = cdd.LPObjType.MIN
     mat.obj_func = [0.] + list(c)
     lp = cdd.LinProg(mat)
