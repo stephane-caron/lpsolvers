@@ -37,6 +37,8 @@ This module provides a single function ``solve_lp(c, G, h, A, b, solver=X)``
 with a *solver* keyword argument to select the backend solver. The linear
 program it solves is, in standard form:
 
+.. code-block::
+
     max  c^T x
     s.t. G x <= h
          A x == b
@@ -72,7 +74,7 @@ the ``solve_lp`` function:
 
 setup(
     name='lpsolvers',
-    version='0.8.0',
+    version='0.8.2',
     description="Wrapper for Linear Programming solvers with a unified API",
     long_description=long_description,
     url="https://github.com/stephane-caron/lpsolvers",
