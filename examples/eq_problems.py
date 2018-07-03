@@ -19,14 +19,9 @@
 # along with lpsolvers. If not, see <http://www.gnu.org/licenses/>.
 
 from lpsolvers import available_solvers, solve_lp
-from numpy import array, ones, eye, zeros
+from numpy import array
 
 problems = []
-
-c = -ones(10)
-G = eye(10)
-h = zeros(10)
-problems.append((c, G, h))
 
 c = array([1., 2., 3.])
 G = array([
@@ -35,10 +30,14 @@ G = array([
     [1., 2., 1.],
     [-1., -1., -1.]])
 h = array([4., 1., 3., 2.])
-problems.append((c, G, h))
+A = array([
+    [2., 0., 0.],
+    [0., 0., 1.]])
+b = array([1., 0.])
+problems.append((c, G, h, A, b))
 
 if __name__ == "__main__":
     for i, (c, G, h) in enumerate(problems):
         for solver in available_solvers:
-            x = solve_lp(c, G, h, solver=solver)
+            x = solve_lp(c, G, h, A, b, solver=solver)
             print "LP %d for %6s:" % (i, solver), x
