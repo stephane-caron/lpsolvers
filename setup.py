@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with lpsolvers. If not, see <http://www.gnu.org/licenses/>.
 
-from distutils.core import setup
+from setuptools import setup
 
 classifiers = """\
 Development Status :: 5 - Production/Stable
@@ -74,7 +74,7 @@ This example outputs the solution ``[2.2 -0.8 -3.4]``.
 
 setup(
     name='lpsolvers',
-    version='0.8.7',
+    version='0.8.8',
     description="Linear Programming solvers for Python with a unified API",
     long_description=long_description,
     url="https://github.com/stephane-caron/lpsolvers",
@@ -84,5 +84,6 @@ setup(
     keywords="lp, linear programming, solver",
     platforms="any",
     classifiers=classifiers.split('\n'),
-    packages=['lpsolvers']
+    packages=['lpsolvers'],
+    install_requires=['cvxopt', 'pycddlib']
 )
