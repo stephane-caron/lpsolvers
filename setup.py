@@ -31,7 +31,6 @@ Programming Language :: Python :: 2
 Programming Language :: Python :: 3
 Operating System :: OS Independent"""
 
-
 long_description = """\
 This module provides a single function ``solve_lp(c, G, h, A, b, solver=X)``
 with a *solver* keyword argument to select the backend solver. The linear
