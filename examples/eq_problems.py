@@ -37,7 +37,7 @@ b = array([1., 0.])
 problems.append((c, G, h, A, b))
 
 if __name__ == "__main__":
-    for i, (c, G, h) in enumerate(problems):
+    for i, (c, G, h, A, b) in enumerate(problems):
         for solver in available_solvers:
             x = solve_lp(c, G, h, A, b, solver=solver)
             print "LP %d for %6s:" % (i, solver), x
