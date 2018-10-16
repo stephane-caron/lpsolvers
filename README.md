@@ -13,7 +13,7 @@ You can add the ``--user`` parameter for a user-only installation.
 
 ## Usage
 
-The function ``solve_Lp(c, A, b)`` is called with the ``solver`` keyword
+The function ``solve_lp(c, G, h, A, b)`` is called with the ``solver`` keyword
 argument to select the backend solver. The linear program it solves is, in
 standard form:
 
