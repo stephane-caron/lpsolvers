@@ -38,7 +38,7 @@ program it solves is, in standard form:
 
 .. code-block::
 
-    min  c^T x
+    min. c^T x
     s.t. G x <= h
          A x == b
 

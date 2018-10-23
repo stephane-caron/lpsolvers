@@ -18,7 +18,7 @@ argument to select the backend solver. The linear program it solves is, in
 standard form:
 
 ```
-    min  c^T x
+    min. c^T x
     s.t. G x <= h
          A x == b
 ```
