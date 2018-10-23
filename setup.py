@@ -38,7 +38,7 @@ program it solves is, in standard form:
 
 .. code-block::
 
-    max  c^T x
+    min  c^T x
     s.t. G x <= h
          A x == b
 
@@ -74,7 +74,7 @@ This example outputs the solution ``[2.2 -0.8 -3.4]``.
 
 setup(
     name='lpsolvers',
-    version='0.8.8',
+    version='0.8.9',
     description="Linear Programming solvers for Python with a unified API",
     long_description=long_description,
     url="https://github.com/stephane-caron/lpsolvers",
