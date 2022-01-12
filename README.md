@@ -1,5 +1,8 @@
 # LP Solvers for Python
 
+[![PyPI package](https://img.shields.io/pypi/v/lpsolvers)](https://pypi.org/project/lpsolvers/)
+![Status](https://img.shields.io/pypi/status/lpsolvers)
+
 Wrapper around Linear Programming (LP) solvers in Python, with a unified
 interface.
 
