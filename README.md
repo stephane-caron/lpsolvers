@@ -58,4 +58,5 @@ This example outputs the solution ``[2.2 -0.8 -3.4]``.
 
 ## Upcoming changes
 
+- Add CVXPY solver
 - Type annotations
