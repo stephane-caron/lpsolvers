@@ -55,3 +55,7 @@ print "LP solution:", solve_lp(c, G, h)
 ```
 
 This example outputs the solution ``[2.2 -0.8 -3.4]``.
+
+## Upcoming changes
+
+- Type annotations

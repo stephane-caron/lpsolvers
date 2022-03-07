@@ -105,8 +105,8 @@ class TestSolveLP(unittest.TestCase):
             x_sp = solve_lp(c, G, h, solver=solver)
             self.assertIsNotNone(x)
             self.assertIsNotNone(x_sp)
-            known_solution = np.array([0.30769231, -0.69230769, 1.38461538])
-            sol_tolerance = 1e-4 if solver == "ecos" else 1e-8
+            known_solution = np.array([2.2, -0.8, -3.4])
+            sol_tolerance = 1e-8
             ineq_tolerance = 1e-10
             self.assertLess(np.linalg.norm(x - known_solution), sol_tolerance)
             self.assertLess(
@@ -158,7 +158,7 @@ class TestSolveLP(unittest.TestCase):
     def get_test_one_ineq(solver):
         """
         Get test function for a given solver. In this variant, there is
-        only one inequality constraint.
+        only one inequality constraint, so the solution is unbounded.
 
         Parameters
         ----------
@@ -174,19 +174,8 @@ class TestSolveLP(unittest.TestCase):
         def test(self):
             c, G, h = self.get_small_problem()
             G, h = G[1], h[1].reshape((1,))
-            x = solve_lp(c, G, h, solver=solver)
-            self.assertIsNotNone(x)
-            known_solution = np.array([0.30769231, -0.69230769, 1.38461538])
-            sol_tolerance = (
-                1e-5
-                if solver == "scs"
-                else 1e-6
-                if solver in ["cvxopt", "ecos"]
-                else 1e-8
-            )
-            ineq_tolerance = 1e-7 if solver == "scs" else 1e-8
-            self.assertLess(np.linalg.norm(x - known_solution), sol_tolerance)
-            self.assertLess(np.dot(G, x) - h, ineq_tolerance)
+            with self.assertRaises(ValueError):
+                solve_lp(c, G, h, solver=solver)
 
         return test
 

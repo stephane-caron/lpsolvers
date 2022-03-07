@@ -19,6 +19,8 @@
 
 """Linear programming solvers in Python with a unified API"""
 
+import numpy as np
+
 from .exceptions import SolverNotFound
 
 __version__ = "0.9.0"
@@ -87,6 +89,8 @@ def solve_lp(c, G, h, A=None, b=None, solver="cvxopt"):
     x : array or None
         Optimal solution if found, None otherwise.
     """
+    if isinstance(G, np.ndarray) and G.ndim == 1:
+        G = G.reshape((1, G.shape[0]))
     if solver == "cvxopt":
         return cvxopt_solve_lp(c, G, h, A, b)
     elif solver == "cdd":
