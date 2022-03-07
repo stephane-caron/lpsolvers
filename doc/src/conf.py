@@ -1,6 +1,7 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2016-2022 Stéphane Caron and the lpsolvers contributors.
+# Copyright (C) 2016-2022 Stéphane Caron <stephane.caron@normalesup.org>
 #
 # This file is part of lpsolvers.
 #
@@ -41,7 +42,7 @@ extensions = [
     "sphinx.ext.coverage",
     "sphinx-mathjax-offline",
     "sphinx.ext.napoleon",  # before sphinx_autodoc_typehints
-    "sphinx_autodoc_typehints"
+    "sphinx_autodoc_typehints",
 ]
 
 # List of modules to be mocked up

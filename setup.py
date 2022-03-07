@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2018 Stephane Caron <stephane.caron@normalesup.org>
+# Copyright (C) 2016-2022 Stéphane Caron <stephane.caron@normalesup.org>
 #
-# This file is part of lpsolvers <https://github.com/stephane-caron/lpsolvers>.
+# This file is part of lpsolvers.
 #
 # lpsolvers is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
