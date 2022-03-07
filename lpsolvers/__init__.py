@@ -19,6 +19,8 @@
 
 """Linear programming solvers in Python with a unified API"""
 
+from .exceptions import SolverNotFound
+
 __version__ = "0.9.0"
 
 available_solvers = []
@@ -89,7 +91,7 @@ def solve_lp(c, G, h, A=None, b=None, solver="cvxopt"):
         return cvxopt_solve_lp(c, G, h, A, b)
     elif solver == "cdd":
         return cdd_solve_lp(c, G, h, A, b)
-    raise Exception("solver '%s' not recognized" % solver)
+    raise SolverNotFound(f"solver '{solver}' is not available")
 
 
 __all__ = [
