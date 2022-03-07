@@ -102,7 +102,7 @@ class TestSolveLP(unittest.TestCase):
         def test(self):
             c, G, h = self.get_small_problem()
             x = solve_lp(c, G, h, solver=solver)
-            x_sp = solve_lp(c, G, h, solver=solver, sym_proj=True)
+            x_sp = solve_lp(c, G, h, solver=solver)
             self.assertIsNotNone(x)
             self.assertIsNotNone(x_sp)
             known_solution = np.array([0.30769231, -0.69230769, 1.38461538])
