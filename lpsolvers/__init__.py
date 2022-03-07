@@ -33,7 +33,7 @@ try:
     available_solvers.append("cvxopt")
 except ImportError:
 
-    def cvxopt_solve_lp(*args, **kwargs):
+    def cvxopt_solve_lp(c, G, h, A=None, b=None, solver=None):
         raise ImportError("CVXOPT not found")
 
 
@@ -46,7 +46,7 @@ try:
     available_solvers.append("cdd")
 except ImportError:
 
-    def cdd_solve_lp(*args, **kwargs):
+    def cdd_solve_lp(c, G, h, A=None, b=None):
         raise ImportError("cdd not found")
 
 
