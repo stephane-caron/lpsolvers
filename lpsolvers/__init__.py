@@ -19,7 +19,7 @@
 
 """Linear programming solvers in Python with a unified API"""
 
-__version__ = "1.0.0"
+__version__ = "0.9.0"
 
 available_solvers = []
 
