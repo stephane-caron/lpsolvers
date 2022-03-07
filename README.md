@@ -1,5 +1,7 @@
 # LP Solvers for Python
 
+[![build](https://img.shields.io/github/workflow/status/stephane-caron/lpsolvers/CI)](https://github.com/stephane-caron/lpsolvers/actions)
+[![Documentation](https://img.shields.io/badge/docs-online-brightgreen?logo=read-the-docs&style=flat)](https://scaron.info/doc/lpsolvers/)
 [![PyPI package](https://img.shields.io/pypi/v/lpsolvers)](https://pypi.org/project/lpsolvers/)
 ![Status](https://img.shields.io/pypi/status/lpsolvers)
 
