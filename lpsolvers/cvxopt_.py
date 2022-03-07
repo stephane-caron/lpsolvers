@@ -72,12 +72,15 @@ def cvxopt_solve_lp(c, G, h, A=None, b=None, solver=GLPK_IF_AVAILABLE):
     """
     Solve a linear program defined by:
 
-        minimize
-            c.T * x
+    .. math::
 
-        subject to
-            G * x <= h
-            A * x == b
+        \\begin{split}\\begin{array}{ll}
+            \\mbox{minimize} &
+                c^T x \\\\
+            \\mbox{subject to}
+                & G x \\leq h \\\\
+                & A x = b
+        \\end{array}\\end{split}
 
     using the LP solver from `CVXOPT <http://cvxopt.org/>`_.
 

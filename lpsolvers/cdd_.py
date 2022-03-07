@@ -28,12 +28,15 @@ def cdd_solve_lp(c, G, h, A=None, b=None):
     """
     Solve a linear program defined by:
 
-        minimize
-            c.T * x
+    .. math::
 
-        subject to
-            G * x <= h
-            A * x == b
+        \\begin{split}\\begin{array}{ll}
+            \\mbox{minimize} &
+                c^T x \\\\
+            \\mbox{subject to}
+                & G x \\leq h \\\\
+                & A x = b
+        \\end{array}\\end{split}
 
     using the LP solver from `cdd <https://github.com/mcmtroffaes/pycddlib>`_.
 
