@@ -38,6 +38,9 @@ try:
 except ImportError:
 
     def cvxopt_solve_lp(c, G, h, A=None, b=None, solver=None):
+        """
+        Function defined when CVXOPT is not available.
+        """
         raise ImportError("CVXOPT not found")
 
 
@@ -51,6 +54,9 @@ try:
 except ImportError:
 
     def cdd_solve_lp(c, G, h, A=None, b=None):
+        """
+        Function defined when cdd is not available.
+        """
         raise ImportError("cdd not found")
 
 
@@ -93,7 +99,7 @@ def solve_lp(c, G, h, A=None, b=None, solver="cvxopt"):
         G = G.reshape((1, G.shape[0]))
     if solver == "cvxopt":
         return cvxopt_solve_lp(c, G, h, A, b)
-    elif solver == "cdd":
+    if solver == "cdd":
         return cdd_solve_lp(c, G, h, A, b)
     raise SolverNotFound(f"solver '{solver}' is not available")
 

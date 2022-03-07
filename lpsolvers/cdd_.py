@@ -17,6 +17,8 @@
 # You should have received a copy of the GNU General Public License along with
 # lpsolvers. If not, see <http://www.gnu.org/licenses/>.
 
+"""Solver interface for cdd."""
+
 import cdd
 
 from numpy import array, hstack, vstack
@@ -73,5 +75,5 @@ def cdd_solve_lp(c, G, h, A=None, b=None):
     lp = cdd.LinProg(mat)
     lp.solve()
     if lp.status != cdd.LPStatusType.OPTIMAL:
-        raise ValueError("LP optimum not found: %s" % lp.status)
+        raise ValueError(f"LP optimum not found: {lp.status}")
     return array(lp.primal_solution)

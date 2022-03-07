@@ -17,6 +17,8 @@
 # You should have received a copy of the GNU General Public License along with
 # lpsolvers. If not, see <http://www.gnu.org/licenses/>.
 
+"""Solver interface for cdd."""
+
 from typing import Optional
 
 import cvxopt
@@ -46,6 +48,19 @@ except ImportError:
 
 
 def cvxopt_matrix(M):
+    """
+    Convert matrix M to CVXOPT format.
+
+    Parameters
+    ----------
+    M : numpy.ndarray
+        Matrix to convert.
+
+    Returns
+    -------
+    M : cvxopt.matrix
+        Same matrix in CVXOPT format.
+    """
     if isinstance(M, cvxopt.matrix):
         return M
     return cvxopt.matrix(M)
@@ -94,5 +109,5 @@ def cvxopt_solve_lp(c, G, h, A=None, b=None, solver=GLPK_IF_AVAILABLE):
         args.extend([cvxopt_matrix(A), cvxopt_matrix(b)])
     sol = lp(*args, solver=solver)
     if "optimal" not in sol["status"]:
-        raise ValueError("LP optimum not found: %s" % sol["status"])
+        raise ValueError(f"LP optimum not found: {sol['status']}")
     return array(sol["x"]).reshape((array(c).shape[0],))
