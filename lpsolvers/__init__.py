@@ -17,6 +17,9 @@
 # You should have received a copy of the GNU General Public License along with
 # lpsolvers. If not, see <http://www.gnu.org/licenses/>.
 
+"""Linear programming solvers in Python with a unified API"""
+
+__version__ = "1.0.0"
 
 available_solvers = []
 
@@ -85,7 +88,8 @@ def solve_lp(c, G, h, A=None, b=None, solver='cvxopt'):
 
 
 __all__ = [
+    '__version__',
     'available_solvers',
+    'cdd_solve_lp',
     'cvxopt_solve_lp',
-    'cdd_solve_lp'
 ]
