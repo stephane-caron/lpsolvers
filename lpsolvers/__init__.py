@@ -29,23 +29,28 @@ available_solvers = []
 
 try:
     from .cvxopt_ import cvxopt_solve_lp
-    available_solvers.append('cvxopt')
+
+    available_solvers.append("cvxopt")
 except ImportError:
+
     def cvxopt_solve_lp(*args, **kwargs):
         raise ImportError("CVXOPT not found")
+
 
 # cdd
 # ===
 
 try:
     from .cdd_ import cdd_solve_lp
-    available_solvers.append('cdd')
+
+    available_solvers.append("cdd")
 except ImportError:
+
     def cdd_solve_lp(*args, **kwargs):
         raise ImportError("cdd not found")
 
 
-def solve_lp(c, G, h, A=None, b=None, solver='cvxopt'):
+def solve_lp(c, G, h, A=None, b=None, solver="cvxopt"):
     """
     Solve a Linear Program defined as:
 
@@ -80,16 +85,17 @@ def solve_lp(c, G, h, A=None, b=None, solver='cvxopt'):
     x : array or None
         Optimal solution if found, None otherwise.
     """
-    if solver == 'cvxopt':
+    if solver == "cvxopt":
         return cvxopt_solve_lp(c, G, h, A, b)
-    elif solver == 'cdd':
+    elif solver == "cdd":
         return cdd_solve_lp(c, G, h, A, b)
     raise Exception("solver '%s' not recognized" % solver)
 
 
 __all__ = [
-    '__version__',
-    'available_solvers',
-    'cdd_solve_lp',
-    'cvxopt_solve_lp',
+    "__version__",
+    "available_solvers",
+    "cdd_solve_lp",
+    "cvxopt_solve_lp",
+    "solve_lp",
 ]

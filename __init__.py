@@ -17,4 +17,15 @@
 # You should have received a copy of the GNU General Public License along with
 # lpsolvers. If not, see <http://www.gnu.org/licenses/>.
 
-from .lpsolvers import *
+from lpsolvers import available_solvers
+from lpsolvers import cdd_solve_lp
+from lpsolvers import cvxopt_solve_lp
+from lpsolvers import solve_lp
+
+__all__ = [
+    "__version__",
+    "available_solvers",
+    "cdd_solve_lp",
+    "cvxopt_solve_lp",
+    "solve_lp",
+]
