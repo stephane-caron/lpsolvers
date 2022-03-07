@@ -9,7 +9,8 @@ interface.
 ## Installation
 
 The simplest way to install this module is:
-```
+```sh
+sudo apt install libgmp-dev python3-dev
 pip install lpsolvers
 ```
 You can add the ``--user`` parameter for a user-only installation.
