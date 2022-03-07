@@ -17,6 +17,8 @@
 # You should have received a copy of the GNU General Public License along with
 # lpsolvers. If not, see <http://www.gnu.org/licenses/>.
 
+from typing import Optional
+
 import cvxopt
 import cvxopt.solvers
 
@@ -24,21 +26,23 @@ from cvxopt.solvers import lp
 from numpy import array
 
 
-cvxopt.solvers.options['show_progress'] = False  # disable cvxopt output
+cvxopt.solvers.options["show_progress"] = False  # disable cvxopt output
+
+GLPK_IF_AVAILABLE: Optional[str] = None
 
 try:
     import cvxopt.glpk
-    GLPK_IF_AVAILABLE = 'glpk'
+
+    GLPK_IF_AVAILABLE = "glpk"
     # GLPK is the fastest LP solver I could find so far:
     # <https://scaron.info/blog/linear-programming-in-python-with-cvxopt.html>
     # ... however, it's verbose by default, so tell it to STFU:
-    cvxopt.solvers.options['glpk'] = {'msg_lev': 'GLP_MSG_OFF'}  # cvxopt 1.1.8
-    cvxopt.solvers.options['msg_lev'] = 'GLP_MSG_OFF'  # cvxopt 1.1.7
-    cvxopt.solvers.options['LPX_K_MSGLEV'] = 0  # previous versions
+    cvxopt.solvers.options["glpk"] = {"msg_lev": "GLP_MSG_OFF"}  # cvxopt 1.1.8
+    cvxopt.solvers.options["msg_lev"] = "GLP_MSG_OFF"  # cvxopt 1.1.7
+    cvxopt.solvers.options["LPX_K_MSGLEV"] = 0  # previous versions
 except ImportError:
     # issue a warning as GLPK is the best LP solver in practice
     print("CVXOPT import: GLPK solver not found")
-    GLPK_IF_AVAILABLE = None
 
 
 def cvxopt_matrix(M):
@@ -89,6 +93,6 @@ def cvxopt_solve_lp(c, G, h, A=None, b=None, solver=GLPK_IF_AVAILABLE):
     if A is not None:
         args.extend([cvxopt_matrix(A), cvxopt_matrix(b)])
     sol = lp(*args, solver=solver)
-    if 'optimal' not in sol['status']:
-        raise ValueError("LP optimum not found: %s" % sol['status'])
-    return array(sol['x']).reshape((array(c).shape[0],))
+    if "optimal" not in sol["status"]:
+        raise ValueError("LP optimum not found: %s" % sol["status"])
+    return array(sol["x"]).reshape((array(c).shape[0],))

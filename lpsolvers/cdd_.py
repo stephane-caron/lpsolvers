@@ -67,9 +67,9 @@ def cdd_solve_lp(c, G, h, A=None, b=None):
         v = h
         U = G
     v = v.reshape((v.shape[0], 1))
-    mat = cdd.Matrix(hstack([v, -U]), number_type='float')
+    mat = cdd.Matrix(hstack([v, -U]), number_type="float")
     mat.obj_type = cdd.LPObjType.MIN
-    mat.obj_func = [0.] + list(c)
+    mat.obj_func = [0.0] + list(c)
     lp = cdd.LinProg(mat)
     lp.solve()
     if lp.status != cdd.LPStatusType.OPTIMAL:
