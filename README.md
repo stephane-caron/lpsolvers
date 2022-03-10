@@ -11,10 +11,12 @@ interface.
 ## Installation
 
 The simplest way to install this module is:
+
 ```sh
 sudo apt install libgmp-dev python3-dev
 pip install lpsolvers
 ```
+
 You can add the ``--user`` parameter for a user-only installation.
 
 ## Usage
@@ -23,11 +25,7 @@ The function ``solve_lp(c, G, h, A, b)`` is called with the ``solver`` keyword
 argument to select the backend solver. The linear program it solves is, in
 standard form:
 
-```
-    min. c^T x
-    s.t. G x <= h
-         A x == b
-```
+![Linear program in standard form](https://raw.githubusercontent.com/stephane-caron/lpsolvers/master/doc/src/images/lp.gif)
 
 Vector inequalities are taken coordinate by coordinate.
 
