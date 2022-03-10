@@ -2,7 +2,7 @@
 
 [**Installation**](#installation)
 | [**Documentation**](https://scaron.info/doc/lpsolvers/)
-| [**Example**](example)
+| [**Example**](#example)
 | [**Solvers**](#solvers)
 
 [![build](https://img.shields.io/github/workflow/status/stephane-caron/lpsolvers/CI)](https://github.com/stephane-caron/lpsolvers/actions)
