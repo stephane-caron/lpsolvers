@@ -1,7 +1,11 @@
 # LP Solvers for Python
 
+[**Installation**](#installation)
+| [**Documentation**](https://scaron.info/doc/lpsolvers/)
+| [**Example**](example)
+| [**Solvers**](#solvers)
+
 [![build](https://img.shields.io/github/workflow/status/stephane-caron/lpsolvers/CI)](https://github.com/stephane-caron/lpsolvers/actions)
-[![Documentation](https://img.shields.io/badge/docs-online-brightgreen?logo=read-the-docs&style=flat)](https://scaron.info/doc/lpsolvers/)
 [![PyPI package](https://img.shields.io/pypi/v/lpsolvers)](https://pypi.org/project/lpsolvers/)
 ![Status](https://img.shields.io/pypi/status/lpsolvers)
 
@@ -29,14 +33,7 @@ standard form:
 
 Vector inequalities are taken coordinate by coordinate.
 
-## Solvers
-
-The list of supported solvers currently includes:
-
-- [CVXOPT](http://cvxopt.org/)
-- [cdd](https://github.com/mcmtroffaes/pycddlib)
-
-## Examples
+## Example
 
 To solve a linear program, build the matrices that define it and call the
 ``solve_lp`` function:
@@ -52,7 +49,14 @@ h = array([4., 1., 3., 2.])
 print "LP solution:", solve_lp(c, G, h)
 ```
 
-This example outputs the solution ``[2.2 -0.8 -3.4]``.
+This example outputs the solution ``[2.2, -0.8, -3.4]``.
+
+## Solvers
+
+The list of supported solvers currently includes:
+
+- [CVXOPT](http://cvxopt.org/)
+- [cdd](https://github.com/mcmtroffaes/pycddlib)
 
 ## Upcoming changes
 
