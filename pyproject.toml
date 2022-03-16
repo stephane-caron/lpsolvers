@@ -23,7 +23,6 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Mathematics",
 ]
 dependencies = [
-    "quadprog >=0.1.8",
     "scipy >=1.2.0",
 ]
 

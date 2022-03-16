@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.
 
 - CVXPY solver interface
 
+### Fixed
+
+- Remove dependency on quadprog
+
 ## [0.9.0] - 2022/03/07
 
 ### Added
