@@ -27,6 +27,7 @@ and comments related to this commit on GitHub.)
 from .lpsolvers import available_solvers
 from .lpsolvers import cdd_solve_lp
 from .lpsolvers import cvxopt_solve_lp
+from .lpsolvers import cvxpy_solve_lp
 from .lpsolvers import solve_lp
 
 __all__ = [
@@ -34,5 +35,6 @@ __all__ = [
     "available_solvers",
     "cdd_solve_lp",
     "cvxopt_solve_lp",
+    "cvxpy_solve_lp",
     "solve_lp",
 ]
