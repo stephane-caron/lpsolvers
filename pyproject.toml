@@ -14,6 +14,7 @@ maintainers = [
 ]
 dynamic = ['version', 'description']
 requires-python = ">=3.7"
+homepage = "https://github.com/stephane-caron/lpsolvers"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
@@ -29,18 +30,20 @@ dependencies = [
 keywords = ["linear programming", "solver", "numerical optimization"]
 
 [project.optional-dependencies]
-doc = [
-    "sphinx",
-]
 all_pypi_solvers = [
     "cvxopt >=1.2.6",
     "cvxpy >=1.1.11",
     "pycddlib >=2.1.4",
 ]
+doc = [
+    "sphinx",
+]
 
 [project.urls]
 Documentation = "https://scaron.info/doc/lpsolvers/"
 Source = "https://github.com/stephane-caron/lpsolvers"
+Tracker = "https://github.com/stephane-caron/lpsolvers/issues",
+Changelog = "https://github.com/stephane-caron/lpsolvers/blob/master/CHANGELOG.md"
 
 [tool.black]
 line-length = 79
