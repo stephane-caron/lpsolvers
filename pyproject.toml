@@ -45,7 +45,7 @@ doc = [
 [project.urls]
 Documentation = "https://scaron.info/doc/lpsolvers/"
 Source = "https://github.com/stephane-caron/lpsolvers"
-Tracker = "https://github.com/stephane-caron/lpsolvers/issues",
+Tracker = "https://github.com/stephane-caron/lpsolvers/issues"
 Changelog = "https://github.com/stephane-caron/lpsolvers/blob/master/CHANGELOG.md"
 
 [tool.black]
