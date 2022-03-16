@@ -26,6 +26,7 @@ classifiers = [
 dependencies = [
     "scipy >=1.2.0",
 ]
+keywords = ["linear programming", "solver", "numerical optimization"]
 
 [project.optional-dependencies]
 doc = [
