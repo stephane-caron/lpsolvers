@@ -1,16 +1,15 @@
 # LP Solvers for Python
 
-[**Installation**](#installation)
+[**Installation**](https://github.com/stephane-caron/lpsolvers#installation)
 | [**Documentation**](https://scaron.info/doc/lpsolvers/)
-| [**Example**](#example)
-| [**Solvers**](#solvers)
+| [**Example**](https://github.com/stephane-caron/lpsolvers#example)
+| [**Solvers**](https://github.com/stephane-caron/lpsolvers#solvers)
 
 [![build](https://img.shields.io/github/workflow/status/stephane-caron/lpsolvers/CI)](https://github.com/stephane-caron/lpsolvers/actions)
 [![PyPI package](https://img.shields.io/pypi/v/lpsolvers)](https://pypi.org/project/lpsolvers/)
 ![Status](https://img.shields.io/pypi/status/lpsolvers)
 
-Wrapper around Linear Programming (LP) solvers in Python, with a unified
-interface.
+Wrapper around Linear Programming (LP) solvers in Python, with a unified interface.
 
 ## Installation
 
@@ -25,9 +24,7 @@ You can add the ``--user`` parameter for a user-only installation.
 
 ## Usage
 
-The function ``solve_lp(c, G, h, A, b)`` is called with the ``solver`` keyword
-argument to select the backend solver. The linear program it solves is, in
-standard form:
+The function ``solve_lp(c, G, h, A, b)`` is called with the ``solver`` keyword argument to select the backend solver. The linear program it solves is, in standard form:
 
 ![Linear program in standard form](https://raw.githubusercontent.com/stephane-caron/lpsolvers/master/doc/src/images/lp.gif)
 
@@ -35,8 +32,7 @@ Vector inequalities are taken coordinate by coordinate.
 
 ## Example
 
-To solve a linear program, build the matrices that define it and call the
-``solve_lp`` function:
+To solve a linear program, build the matrices that define it and call the ``solve_lp`` function:
 
 ```python
 from numpy import array
