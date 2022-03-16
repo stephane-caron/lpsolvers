@@ -117,44 +117,6 @@ class TestSolveLP(unittest.TestCase):
         return test
 
     @staticmethod
-    def get_test_all_shapes(solver):
-        """
-        Get test function for a given solver. This variant tries all possible
-        shapes for matrix and vector parameters.
-
-        Parameters
-        ----------
-        solver : string
-            Name of the solver to test.
-
-        Returns
-        -------
-        test : function
-            Test function for that solver.
-        """
-
-        def test(self):
-            c, G, h = self.get_small_problem()
-            h0 = np.array([h[0]])
-
-            cases = [
-                {"c": c},
-                {"c": c, "G": G, "h": h},
-                {"c": c, "G": G[0], "h": h0},
-                {"c": c, "G": G[0], "h": h0},
-                {"c": c, "G": G, "h": h},
-                {"c": c, "G": G[0], "h": h0},
-            ]
-
-            for (i, case) in enumerate(cases):
-                cvxopt_solution = solve_lp(solver="cvxopt", **case)
-                for solver in available_solvers:
-                    x = solve_lp(solver=solver, **case)
-                    self.assertLess(np.linalg.norm(x - cvxopt_solution), 2e-4)
-
-        return test
-
-    @staticmethod
     def get_test_one_ineq(solver):
         """
         Get test function for a given solver. In this variant, there is
@@ -179,6 +141,31 @@ class TestSolveLP(unittest.TestCase):
 
         return test
 
+    @staticmethod
+    def get_test_unfeasible(solver):
+        """
+        Get test function for a given solver. In this variant, the linear
+        program is unfeasible.
+
+        Parameters
+        ----------
+        solver : string
+            Name of the solver to test.
+
+        Returns
+        -------
+        test : function
+            Test function for that solver.
+        """
+
+        def test(self):
+            c, G, h = self.get_small_problem()
+            G[1] *= -1.0  # makes problem unfeasible
+            with self.assertRaises(ValueError):
+                solve_lp(c, G, h, solver=solver)
+
+        return test
+
 
 # Generate test fixtures for each solver
 for solver in available_solvers:
@@ -187,6 +174,11 @@ for solver in available_solvers:
         TestSolveLP,
         f"test_one_ineq_{solver}",
         TestSolveLP.get_test_one_ineq(solver),
+    )
+    setattr(
+        TestSolveLP,
+        f"test_unfeasible_{solver}",
+        TestSolveLP.get_test_unfeasible(solver),
     )
 
 
