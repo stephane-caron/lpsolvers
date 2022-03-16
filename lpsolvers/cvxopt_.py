@@ -117,7 +117,7 @@ def cvxopt_solve_lp(
         If the LP is not feasible.
     """
     args = [cvxopt_matrix(c), cvxopt_matrix(G), cvxopt_matrix(h)]
-    if A is not None:
+    if A is not None and b is not None:
         args.extend([cvxopt_matrix(A), cvxopt_matrix(b)])
     sol = lp(*args, solver=solver)
     if "optimal" not in sol["status"]:
