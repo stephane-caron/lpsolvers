@@ -6,8 +6,6 @@
 lpsolvers
 #########
 
-.. **Release 1.0 -- March 7, 2022**
-
 Unified interface to Linear Programming (LP) solvers available in Python.
 
 The library provides a one-stop shop :func:`.solve_lp` function with a

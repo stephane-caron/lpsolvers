@@ -66,7 +66,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "lpsolvers"
-copyright = "2016-2022 Stéphane Caron and the lpsolvers contributors."
+copyright = "2016-2022 Stéphane Caron"
 author = "Stéphane Caron"
 
 # The version info for the project you're documenting, acts as replacement for
