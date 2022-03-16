@@ -49,18 +49,18 @@ except ImportError:
     logging.warning("CVXOPT import: GLPK solver not found")
 
 
-def cvxopt_matrix(M):
+def cvxopt_matrix(M: np.ndarray) -> cvxopt.matrix:
     """
     Convert matrix M to CVXOPT format.
 
     Parameters
     ----------
-    M : numpy.ndarray
+    M :
         Matrix to convert.
 
     Returns
     -------
-    M : cvxopt.matrix
+    :
         Same matrix in CVXOPT format.
     """
     if isinstance(M, cvxopt.matrix):
@@ -93,22 +93,22 @@ def cvxopt_solve_lp(
 
     Parameters
     ----------
-    c : array, shape=(n,)
-        Linear-cost vector.
-    G : array, shape=(m, n)
+    c :
+        Linear cost vector.
+    G :
         Linear inequality constraint matrix.
-    h : array, shape=(m,)
+    h :
         Linear inequality constraint vector.
-    A : array, shape=(meq, n), optional
+    A :
         Linear equality constraint matrix.
-    b : array, shape=(meq,), optional
+    b :
         Linear equality constraint vector.
-    solver : string, optional
+    solver :
         Solver to use, default is GLPK if available
 
     Returns
     -------
-    x : array, shape=(n,)
+    :
         Optimal (primal) solution of the linear program, if it exists.
 
     Raises

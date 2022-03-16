@@ -54,10 +54,8 @@ def cvxpy_solve_lp(
 
     Parameters
     ----------
-    P :
-        Primal quadratic cost matrix.
-    q :
-        Primal quadratic cost vector.
+    c :
+        Linear cost vector.
     G :
         Linear inequality constraint matrix.
     h :

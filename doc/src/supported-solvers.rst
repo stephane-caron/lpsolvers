@@ -4,12 +4,17 @@
 Supported solvers
 *****************
 
+cdd
+===
+
+.. autofunction:: lpsolvers.cdd_solve_lp
+
 CVXOPT
 ======
 
 .. autofunction:: lpsolvers.cvxopt_solve_lp
 
-cdd
-===
+CVXPY
+=====
 
-.. autofunction:: lpsolvers.cdd_solve_lp
+.. autofunction:: lpsolvers.cvxpy_solve_lp

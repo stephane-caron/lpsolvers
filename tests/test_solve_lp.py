@@ -35,7 +35,7 @@ from lpsolvers.exceptions import SolverNotFound
 class TestSolveLP(unittest.TestCase):
 
     """
-    Test fixture for a variety of quadratic programs.
+    Test fixture for a variety of linear programs.
 
     Solver-specific tests are implemented in static methods called
     ``get_test_{foo}`` that return the test function for a given solver. The

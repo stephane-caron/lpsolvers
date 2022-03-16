@@ -110,36 +110,37 @@ def solve_lp(
     """
     Solve a Linear Program defined as:
 
-        minimize
-            c.T * x
+    .. math::
 
-        subject to
-            G * x <= h
-            A * x == b
+        \\begin{split}\\begin{array}{ll}
+            \\mbox{minimize} &
+                c^T x \\\\
+            \\mbox{subject to}
+                & G x \\leq h \\\\
+                & A x = b
+        \\end{array}\\end{split}
 
     using one of the available LP solvers.
 
     Parameters
     ----------
-    c : array, shape=(n,)
-        Linear-cost vector.
-    G : array, shape=(m, n)
+    c :
+        Linear cost vector.
+    G :
         Linear inequality constraint matrix.
-    h : array, shape=(m,)
+    h :
         Linear inequality constraint vector.
-    A : array, shape=(meq, n), optional
+    A :
         Linear equality constraint matrix.
-    b : array, shape=(meq,), optional
+    b :
         Linear equality constraint vector.
-    solver : string, optional
-        Solver to use, default is GLPK if available
-    solver : string, optional
-        Name of the LP solver, to choose in ['cvxopt', 'cdd'].
+    solver :
+        Name of the LP solver to choose in :data:`lpsolvers.available_solvers`.
 
     Returns
     -------
-    x : array or None
-        Optimal solution if found, None otherwise.
+    :
+        Optimal solution if found, ``None`` otherwise.
 
     Raises
     ------
