@@ -57,8 +57,3 @@ The list of supported solvers currently includes:
 
 - [CVXOPT](http://cvxopt.org/)
 - [cdd](https://github.com/mcmtroffaes/pycddlib)
-
-## Upcoming changes
-
-- Add CVXPY solver
-- Type annotations

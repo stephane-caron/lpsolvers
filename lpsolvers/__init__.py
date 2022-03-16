@@ -19,29 +19,15 @@
 
 """Linear programming solvers in Python with a unified API"""
 
+from typing import Optional
+
 import numpy as np
 
 from .exceptions import SolverNotFound
 
-__version__ = "0.9.0"
+__version__ = "1.0.0"
 
 available_solvers = []
-
-
-# CVXOPT
-# ======
-
-try:
-    from .cvxopt_ import cvxopt_solve_lp
-
-    available_solvers.append("cvxopt")
-except ImportError:
-
-    def cvxopt_solve_lp(c, G, h, A=None, b=None, solver=None):
-        """
-        Function defined when CVXOPT is not available.
-        """
-        raise ImportError("CVXOPT not found")
 
 
 # cdd
@@ -55,9 +41,49 @@ except ImportError:
 
     def cdd_solve_lp(c, G, h, A=None, b=None):
         """
-        Function defined when cdd is not available.
+        Error function defined when cdd is not available.
         """
         raise ImportError("cdd not found")
+
+
+# CVXOPT
+# ======
+
+try:
+    from .cvxopt_ import cvxopt_solve_lp
+
+    available_solvers.append("cvxopt")
+except ImportError:
+
+    def cvxopt_solve_lp(c, G, h, A=None, b=None, solver=None):
+        """
+        Error function defined when CVXOPT is not available.
+        """
+        raise ImportError("CVXOPT not found")
+
+
+# CVXPY
+# =====
+
+try:
+    from .cvxpy_ import cvxpy_solve_lp
+
+    available_solvers.append("cvxpy")
+except ImportError:
+
+    def cvxpy_solve_lp(
+        c: np.ndarray,
+        G: Optional[np.ndarray] = None,
+        h: Optional[np.ndarray] = None,
+        A: Optional[np.ndarray] = None,
+        b: Optional[np.ndarray] = None,
+        solver: Optional[str] = None,
+        verbose: bool = False,
+    ) -> Optional[np.ndarray]:
+        """
+        Error function defined when CVXPY is not available.
+        """
+        raise ImportError("CVXPY not found")
 
 
 def solve_lp(c, G, h, A=None, b=None, solver="cvxopt"):
@@ -97,10 +123,12 @@ def solve_lp(c, G, h, A=None, b=None, solver="cvxopt"):
     """
     if isinstance(G, np.ndarray) and G.ndim == 1:
         G = G.reshape((1, G.shape[0]))
-    if solver == "cvxopt":
-        return cvxopt_solve_lp(c, G, h, A, b)
     if solver == "cdd":
         return cdd_solve_lp(c, G, h, A, b)
+    if solver == "cvxopt":
+        return cvxopt_solve_lp(c, G, h, A, b)
+    if solver == "cvxpy":
+        return cvxpy_solve_lp(c, G, h, A, b)
     raise SolverNotFound(f"solver '{solver}' is not available")
 
 
@@ -109,5 +137,6 @@ __all__ = [
     "available_solvers",
     "cdd_solve_lp",
     "cvxopt_solve_lp",
+    "cvxpy_solve_lp",
     "solve_lp",
 ]

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0] - 2022/03/16
+
+### Added
+
+- CVXPY solver interface
+
 ## [0.9.0] - 2022/03/07
 
 ### Added
