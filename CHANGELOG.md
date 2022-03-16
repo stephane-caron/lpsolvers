@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Unreleased
+
+### Fixed
+
+- Add license to project config
+
 ## [1.0.0] - 2022/03/16
 
 ### Added

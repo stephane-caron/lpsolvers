@@ -5,6 +5,7 @@ build-backend = "flit_core.buildapi"
 [project]
 name = "lpsolvers"
 readme = "README.md"
+license = {file = "LICENSE"}
 authors = [
     {name = "Stéphane Caron", email = "stephane.caron@normalesup.org"},
 ]
