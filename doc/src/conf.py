@@ -74,10 +74,10 @@ author = "Stéphane Caron"
 # built documents.
 #
 # The short X.Y version.
-version = "0.9"
+version = None
 
 # The full version, including alpha/beta/rc tags.
-release = "0.9.0"
+release = None
 
 # Read version info directly from the module's __init__.py
 init_path = join(
