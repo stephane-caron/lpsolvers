@@ -25,9 +25,9 @@ from typing import Optional
 
 import cvxopt
 import cvxopt.solvers
+import numpy as np
 
 from cvxopt.solvers import lp
-from numpy import array
 
 
 cvxopt.solvers.options["show_progress"] = False  # disable cvxopt output
@@ -68,7 +68,14 @@ def cvxopt_matrix(M):
     return cvxopt.matrix(M)
 
 
-def cvxopt_solve_lp(c, G, h, A=None, b=None, solver=GLPK_IF_AVAILABLE):
+def cvxopt_solve_lp(
+    c: np.ndarray,
+    G: np.ndarray,
+    h: np.ndarray,
+    A: Optional[np.ndarray] = None,
+    b: Optional[np.ndarray] = None,
+    solver: Optional[str] = GLPK_IF_AVAILABLE,
+) -> np.ndarray:
     """
     Solve a linear program defined by:
 
@@ -102,7 +109,7 @@ def cvxopt_solve_lp(c, G, h, A=None, b=None, solver=GLPK_IF_AVAILABLE):
     Returns
     -------
     x : array, shape=(n,)
-        Optimal (primal) solution of the LP, if one exists.
+        Optimal (primal) solution of the linear program, if it exists.
 
     Raises
     ------
@@ -115,4 +122,5 @@ def cvxopt_solve_lp(c, G, h, A=None, b=None, solver=GLPK_IF_AVAILABLE):
     sol = lp(*args, solver=solver)
     if "optimal" not in sol["status"]:
         raise ValueError(f"LP optimum not found: {sol['status']}")
-    return array(sol["x"]).reshape((array(c).shape[0],))
+    n = c.shape[0]
+    return np.array(sol["x"]).reshape((n,))

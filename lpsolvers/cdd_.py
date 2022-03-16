@@ -19,12 +19,19 @@
 
 """Solver interface for cdd."""
 
+from typing import Optional
+
 import cdd
+import numpy as np
 
-from numpy import array, hstack, vstack
 
-
-def cdd_solve_lp(c, G, h, A=None, b=None):
+def cdd_solve_lp(
+    c: np.ndarray,
+    G: np.ndarray,
+    h: np.ndarray,
+    A: Optional[np.ndarray] = None,
+    b: Optional[np.ndarray] = None,
+) -> np.ndarray:
     """
     Solve a linear program defined by:
 
@@ -58,25 +65,25 @@ def cdd_solve_lp(c, G, h, A=None, b=None):
     Returns
     -------
     x : array, shape=(n,)
-        Optimal (primal) solution of the LP, if one exists.
+        Optimal (primal) solution of the linear program, if it exists.
 
     Raises
     ------
     ValueError
-        If the LP is not feasible.
+        If the linear program is not feasible.
     """
-    if A is not None:
-        v = hstack([h, b, -b])
-        U = vstack([G, A, -A])
+    if A is not None and b is not None:
+        v = np.hstack([h, b, -b])
+        U = np.vstack([G, A, -A])
     else:  # no equality constraint
         v = h
         U = G
     v = v.reshape((v.shape[0], 1))
-    mat = cdd.Matrix(hstack([v, -U]), number_type="float")
+    mat = cdd.Matrix(np.hstack([v, -U]), number_type="float")
     mat.obj_type = cdd.LPObjType.MIN
     mat.obj_func = [0.0] + list(c)
     lp = cdd.LinProg(mat)
     lp.solve()
     if lp.status != cdd.LPStatusType.OPTIMAL:
-        raise ValueError(f"LP optimum not found: {lp.status}")
-    return array(lp.primal_solution)
+        raise ValueError(f"Linear program not feasible: {lp.status}")
+    return np.array(lp.primal_solution)

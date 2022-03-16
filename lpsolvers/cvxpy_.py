@@ -29,15 +29,15 @@ from numpy import array
 
 def cvxpy_solve_lp(
     c: np.ndarray,
-    G: Optional[np.ndarray] = None,
-    h: Optional[np.ndarray] = None,
+    G: np.ndarray,
+    h: np.ndarray,
     A: Optional[np.ndarray] = None,
     b: Optional[np.ndarray] = None,
     solver: Optional[str] = None,
     verbose: bool = False,
-) -> Optional[np.ndarray]:
+) -> np.ndarray:
     """
-    Solve a Quadratic Program defined as:
+    Solve a linear program defined as:
 
     .. math::
 
@@ -45,7 +45,7 @@ def cvxpy_solve_lp(
         \\mbox{minimize}
             & c^T x \\\\
         \\mbox{subject to}
-            & G x \\leq h        \\\\
+            & G x \\leq h \\\\
             & A x = b
         \\end{array}\\end{split}
 
@@ -73,8 +73,13 @@ def cvxpy_solve_lp(
 
     Returns
     -------
-    :
-        Solution to the QP, if found, otherwise ``None``.
+    x : array, shape=(n,)
+        Optimal (primal) solution of the linear program, if it exists.
+
+    Raises
+    ------
+    ValueError
+        If the LP is not feasible.
     """
     n = c.shape[0]
     x = Variable(n)
@@ -87,5 +92,5 @@ def cvxpy_solve_lp(
     prob = Problem(objective, constraints)
     prob.solve(solver=solver, verbose=verbose)
     if x.value is None:
-        return None
+        raise ValueError("Linear program is not feasible")
     return array(x.value).reshape((n,))

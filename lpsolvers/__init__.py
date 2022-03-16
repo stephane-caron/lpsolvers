@@ -39,7 +39,13 @@ try:
     available_solvers.append("cdd")
 except ImportError:
 
-    def cdd_solve_lp(c, G, h, A=None, b=None):
+    def cdd_solve_lp(
+        c: np.ndarray,
+        G: np.ndarray,
+        h: np.ndarray,
+        A: Optional[np.ndarray] = None,
+        b: Optional[np.ndarray] = None,
+    ) -> np.ndarray:
         """
         Error function defined when cdd is not available.
         """
@@ -55,7 +61,14 @@ try:
     available_solvers.append("cvxopt")
 except ImportError:
 
-    def cvxopt_solve_lp(c, G, h, A=None, b=None, solver=None):
+    def cvxopt_solve_lp(
+        c: np.ndarray,
+        G: np.ndarray,
+        h: np.ndarray,
+        A: Optional[np.ndarray] = None,
+        b: Optional[np.ndarray] = None,
+        solver: Optional[str] = None,
+    ) -> np.ndarray:
         """
         Error function defined when CVXOPT is not available.
         """
@@ -73,20 +86,27 @@ except ImportError:
 
     def cvxpy_solve_lp(
         c: np.ndarray,
-        G: Optional[np.ndarray] = None,
-        h: Optional[np.ndarray] = None,
+        G: np.ndarray,
+        h: np.ndarray,
         A: Optional[np.ndarray] = None,
         b: Optional[np.ndarray] = None,
         solver: Optional[str] = None,
         verbose: bool = False,
-    ) -> Optional[np.ndarray]:
+    ) -> np.ndarray:
         """
         Error function defined when CVXPY is not available.
         """
         raise ImportError("CVXPY not found")
 
 
-def solve_lp(c, G, h, A=None, b=None, solver="cvxopt"):
+def solve_lp(
+    c: np.ndarray,
+    G: np.ndarray,
+    h: np.ndarray,
+    A: Optional[np.ndarray] = None,
+    b: Optional[np.ndarray] = None,
+    solver="cvxopt",
+) -> np.ndarray:
     """
     Solve a Linear Program defined as:
 
@@ -120,6 +140,13 @@ def solve_lp(c, G, h, A=None, b=None, solver="cvxopt"):
     -------
     x : array or None
         Optimal solution if found, None otherwise.
+
+    Raises
+    ------
+    ValueError
+        If the LP is not feasible.
+    SolverNotFound
+        If the requested LP solver is not found.
     """
     if isinstance(G, np.ndarray) and G.ndim == 1:
         G = G.reshape((1, G.shape[0]))
