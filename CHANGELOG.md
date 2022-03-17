@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.
 
 - Relicense the project to LPGL-3.0
 
+### Fixed
+
+- Add CVXPY to test environment
+
 ## [1.0.1] - 2022/03/16
 
 ### Added
