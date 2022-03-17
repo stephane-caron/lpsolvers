@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Changed
+
+- Relicense the project to LPGL-3.0
+
+## [1.0.1] - 2022/03/16
+
+### Added
+
+- Links and keywords to project description for PyPI
+
 ### Fixed
 
 - Add license to project config
