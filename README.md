@@ -6,7 +6,7 @@
 | [**Solvers**](https://github.com/stephane-caron/lpsolvers#solvers)
 
 [![build](https://img.shields.io/github/workflow/status/stephane-caron/lpsolvers/CI)](https://github.com/stephane-caron/lpsolvers/actions)
-[![PyPI version](https://img.shields.io/pypi/v/lpsolvers)
+[![PyPI version](https://img.shields.io/pypi/v/lpsolvers)](https://pypi.org/project/lpsolvers/)
 ![Status](https://img.shields.io/pypi/status/lpsolvers)
 
 Wrapper around Linear Programming (LP) solvers in Python, with a unified interface.
