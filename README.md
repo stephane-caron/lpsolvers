@@ -5,7 +5,8 @@
 | [**Example**](https://github.com/stephane-caron/lpsolvers#example)
 | [**Solvers**](https://github.com/stephane-caron/lpsolvers#solvers)
 
-[![build](https://img.shields.io/github/workflow/status/stephane-caron/lpsolvers/CI)](https://github.com/stephane-caron/lpsolvers/actions)
+[![Build](https://img.shields.io/github/workflow/status/stephane-caron/lpsolvers/CI)](https://github.com/stephane-caron/lpsolvers/actions)
+[![Coverage](https://coveralls.io/repos/github/stephane-caron/lpsolvers/badge.svg?branch=master)](https://coveralls.io/github/stephane-caron/lpsolvers?branch=master)
 [![PyPI version](https://img.shields.io/pypi/v/lpsolvers)](https://pypi.org/project/lpsolvers/)
 ![Status](https://img.shields.io/pypi/status/lpsolvers)
 
