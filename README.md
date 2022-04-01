@@ -27,7 +27,7 @@ You can add the ``--user`` parameter for a user-only installation.
 
 The function ``solve_lp(c, G, h, A, b)`` is called with the ``solver`` keyword argument to select the backend solver. The linear program it solves is, in standard form:
 
-![Linear program in standard form](https://raw.githubusercontent.com/stephane-caron/lpsolvers/master/doc/src/images/lp.gif)
+> ![Linear program in standard form](https://raw.githubusercontent.com/stephane-caron/lpsolvers/master/doc/src/images/lp.gif)
 
 Vector inequalities are taken coordinate by coordinate.
 
