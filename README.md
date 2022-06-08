@@ -25,9 +25,19 @@ You can add the ``--user`` parameter for a user-only installation.
 
 ## Usage
 
-The function ``solve_lp(c, G, h, A, b)`` is called with the ``solver`` keyword argument to select the backend solver. The linear program it solves is, in standard form:
+The function [`solve_lp`](https://scaron.info/doc/lpsolvers/linear-programming.html#lpsolvers.solve_lp) is called with the ``solver`` keyword argument to select the backend solver. The linear program it solves is, in standard form:
 
-> ![Linear program in standard form](https://raw.githubusercontent.com/stephane-caron/lpsolvers/master/doc/src/images/lp.gif)
+$$
+\begin{split}
+\begin{array}{ll}
+    \mbox{minimize} &
+        c^T x \\
+    \mbox{subject to}
+        & G x \leq h \\
+        & A x = b
+\end{array}
+\end{split}
+$$
 
 Vector inequalities are taken coordinate by coordinate.
 
