@@ -76,6 +76,7 @@ def cvxopt_solve_lp(
     A: Optional[np.ndarray] = None,
     b: Optional[np.ndarray] = None,
     solver: Optional[str] = GLPK_IF_AVAILABLE,
+    **kwargs,
 ) -> np.ndarray:
     """
     Solve a linear program defined by:
@@ -120,7 +121,7 @@ def cvxopt_solve_lp(
     args = [cvxopt_matrix(c), cvxopt_matrix(G), cvxopt_matrix(h)]
     if A is not None and b is not None:
         args.extend([cvxopt_matrix(A), cvxopt_matrix(b)])
-    sol = lp(*args, solver=solver)
+    sol = lp(*args, solver=solver, **kwargs)
     if "optimal" not in sol["status"]:
         raise ValueError(f"LP optimum not found: {sol['status']}")
     n = c.shape[0]
