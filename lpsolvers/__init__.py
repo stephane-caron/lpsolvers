@@ -186,7 +186,7 @@ def solve_lp(
     if isinstance(G, np.ndarray) and G.ndim == 1:
         G = G.reshape((1, G.shape[0]))
     if solver == "cdd":
-        return cdd_solve_lp(c, G, h, A, b, **kwargs)
+        return cdd_solve_lp(c, G, h, A, b)
     if solver == "cvxopt":
         return cvxopt_solve_lp(c, G, h, A, b, **kwargs)
     if solver == "cvxpy":

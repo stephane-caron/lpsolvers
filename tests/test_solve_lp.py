@@ -27,8 +27,7 @@ import warnings
 
 import numpy as np
 
-from lpsolvers import available_solvers
-from lpsolvers import solve_lp
+from lpsolvers import available_solvers, solve_lp
 from lpsolvers.exceptions import SolverNotFound
 
 
