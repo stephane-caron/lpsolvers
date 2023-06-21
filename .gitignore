@@ -6,4 +6,5 @@
 MANIFEST
 build/
 dist/
+examples/lpsolvers
 lpsolvers.egg-info
