@@ -186,13 +186,13 @@ def solve_lp(
     if isinstance(G, np.ndarray) and G.ndim == 1:
         G = G.reshape((1, G.shape[0]))
     if solver == "cdd":
-        return cdd_solve_lp(c, G, h, A, b)
+        return cdd_solve_lp(c, G, h, A, b, **kwargs)
     if solver == "cvxopt":
-        return cvxopt_solve_lp(c, G, h, A, b)
+        return cvxopt_solve_lp(c, G, h, A, b, **kwargs)
     if solver == "cvxpy":
-        return cvxpy_solve_lp(c, G, h, A, b)
+        return cvxpy_solve_lp(c, G, h, A, b, **kwargs)
     if solver == "proxqp":
-        return proxqp_solve_lp(c, G, h, A, b)
+        return proxqp_solve_lp(c, G, h, A, b, **kwargs)
     raise SolverNotFound(f"solver '{solver}' is not available")
 
 
