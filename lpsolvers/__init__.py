@@ -100,6 +100,31 @@ except ImportError:
         raise ImportError("CVXPY not found")
 
 
+# ProxQP
+# ======
+
+try:
+    from .proxqp_ import proxqp_solve_lp
+
+    available_solvers.append("proxqp")
+except ImportError:
+
+    def proxqp_solve_lp(
+        c: np.ndarray,
+        G: np.ndarray,
+        h: np.ndarray,
+        A: Optional[np.ndarray] = None,
+        b: Optional[np.ndarray] = None,
+        solver: Optional[str] = None,
+        verbose: bool = False,
+        backend: Optional[str] = None,
+    ) -> np.ndarray:
+        """
+        Error function defined when ProxQP is not available.
+        """
+        raise ImportError("ProxQP not found")
+
+
 def solve_lp(
     c: np.ndarray,
     G: np.ndarray,
@@ -158,6 +183,8 @@ def solve_lp(
         return cvxopt_solve_lp(c, G, h, A, b)
     if solver == "cvxpy":
         return cvxpy_solve_lp(c, G, h, A, b)
+    if solver == "proxqp":
+        return proxqp_solve_lp(c, G, h, A, b)
     raise SolverNotFound(f"solver '{solver}' is not available")
 
 
@@ -167,5 +194,6 @@ __all__ = [
     "cdd_solve_lp",
     "cvxopt_solve_lp",
     "cvxpy_solve_lp",
+    "proxqp_solve_lp",
     "solve_lp",
 ]
