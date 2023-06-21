@@ -36,6 +36,7 @@ def cvxpy_solve_lp(
     b: Optional[np.ndarray] = None,
     solver: Optional[str] = None,
     verbose: bool = False,
+    **kwargs,
 ) -> np.ndarray:
     """
     Solve a linear program defined as:
@@ -89,7 +90,7 @@ def cvxpy_solve_lp(
     if A is not None:
         constraints.append(A @ x == b)
     prob = Problem(objective, constraints)
-    prob.solve(solver=solver, verbose=verbose)
+    prob.solve(solver=solver, verbose=verbose, **kwargs)
     if x.value is None:
         raise ValueError("Linear program is not feasible")
     return array(x.value).reshape((n,))
