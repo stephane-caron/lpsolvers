@@ -164,4 +164,6 @@ def proxqp_solve_lp(
     problem.settings.verbose = verbose
     problem.init(None, c, None, None, G, None, h)
     problem.solve()
+    if problem.results.info.status != proxqp.PROXQP_SOLVED:
+        raise ValueError("Linear program is not feasible")
     return problem.results.x
