@@ -32,8 +32,6 @@ from typing import Optional
 import numpy as np
 from proxsuite import proxqp
 
-from ..exceptions import ParamError
-
 
 def __select_backend(backend: Optional[str], use_csc: bool):
     """Select backend function for ProxQP.
@@ -62,7 +60,7 @@ def __select_backend(backend: Optional[str], use_csc: bool):
         return proxqp.dense.QP
     if backend == "sparse":
         return proxqp.sparse.QP
-    raise ParamError(f'Unknown ProxQP backend "{backend}')
+    raise ValueError(f'Unknown ProxQP backend "{backend}')
 
 
 def proxqp_solve_lp(
@@ -149,7 +147,7 @@ def proxqp_solve_lp(
     """
     if initvals is not None:
         if "x" in kwargs:
-            raise ParamError(
+            raise ValueError(
                 "Warm-start value specified in both `initvals` and `x` kwargs"
             )
         kwargs["x"] = initvals
