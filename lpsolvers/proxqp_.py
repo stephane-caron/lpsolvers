@@ -101,48 +101,9 @@ def proxqp_solve_lp(
 
     Notes
     -----
-    All other keyword arguments are forwarded as options to ProxQP. For
-    instance, you can call ``proxqp_solve_qp(P, q, G, h, eps_abs=1e-6)``.
-    For a quick overview, the solver accepts the following settings:
-
-    .. list-table::
-       :widths: 30 70
-       :header-rows: 1
-
-       * - Name
-         - Effect
-       * - ``x``
-         - Warm start value for the primal variable.
-       * - ``y``
-         - Warm start value for the dual Lagrange multiplier for equality
-           constraints.
-       * - ``z``
-         - Warm start value for the dual Lagrange multiplier for inequality
-           constraints.
-       * - ``eps_abs``
-         - Asbolute stopping criterion of the solver (default: 1e-3, note that
-           this is a laxer default than other solvers). See *e.g.*
-           [tolerances]_ for an overview of solver tolerances.
-       * - ``eps_rel``
-         - Relative stopping criterion of the solver. See *e.g.* [tolerances]_
-           for an overview of solver tolerances.
-       * - ``mu_eq``
-         - Proximal step size wrt equality constraints multiplier.
-       * - ``mu_in``
-         - Proximal step size wrt inequality constraints multiplier.
-       * - ``rho``
-         - Proximal step size wrt primal variable.
-       * - ``compute_preconditioner``
-         - If ``True`` (default), the preconditioner will be derived.
-       * - ``compute_timings``
-         - If ``True`` (default), timings will be computed by the solver (setup
-           time, solving time, and run time = setup time + solving time).
-       * - ``max_iter``
-         - Maximal number of authorized outer iterations.
-       * - ``initial_guess``
-         - Sets the initial guess option for initilizing x, y and z.
-
-    This list is not exhaustive. Check out the `solver documentation
+    All other keyword arguments are forwarded as solver settings to ProxQP. For
+    instance, you can call ``proxqp_solve_qp(P, q, G, h, eps_abs=1e-6)``. Check
+    out the `solver documentation
     <https://simple-robotics.github.io/proxsuite/>`__ for details.
     """
     if initvals is not None:
@@ -160,6 +121,8 @@ def proxqp_solve_lp(
         n_eq=b.shape[0] if b is not None else 0,
         n_in=h.shape[0] if h is not None else 0,
     )
+    for key, value in kwargs.items():
+        setattr(problem.settings, key, value)
     problem.settings.problem_type = proxqp.problem_type.LP
     problem.settings.verbose = verbose
     problem.init(None, c, None, None, G, None, h)
