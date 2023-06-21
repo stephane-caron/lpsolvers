@@ -132,6 +132,7 @@ def solve_lp(
     A: Optional[np.ndarray] = None,
     b: Optional[np.ndarray] = None,
     solver="cvxopt",
+    **kwargs,
 ) -> np.ndarray:
     """
     Solve a Linear Program defined as:
@@ -174,6 +175,13 @@ def solve_lp(
         If the LP is not feasible.
     SolverNotFound
         If the requested LP solver is not found.
+
+    Notes
+    -----
+    Extra keyword arguments given to this function are forwarded to the
+    underlying solver. For example, we can call ProxQP with a custom absolute
+    feasibility tolerance by ``solve_lp(c, G, h, solver='proxqp',
+    eps_abs=1e-8)``.
     """
     if isinstance(G, np.ndarray) and G.ndim == 1:
         G = G.reshape((1, G.shape[0]))
