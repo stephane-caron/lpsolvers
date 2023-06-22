@@ -69,6 +69,7 @@ except ImportError:
         A: Optional[np.ndarray] = None,
         b: Optional[np.ndarray] = None,
         solver: Optional[str] = None,
+        **kwargs,
     ) -> np.ndarray:
         """
         Error function defined when CVXOPT is not available.
@@ -93,6 +94,7 @@ except ImportError:
         b: Optional[np.ndarray] = None,
         solver: Optional[str] = None,
         verbose: bool = False,
+        **kwargs,
     ) -> np.ndarray:
         """
         Error function defined when CVXPY is not available.
@@ -115,9 +117,10 @@ except ImportError:
         h: np.ndarray,
         A: Optional[np.ndarray] = None,
         b: Optional[np.ndarray] = None,
-        solver: Optional[str] = None,
+        initvals: Optional[np.ndarray] = None,
         verbose: bool = False,
         backend: Optional[str] = None,
+        **kwargs,
     ) -> np.ndarray:
         """
         Error function defined when ProxQP is not available.
