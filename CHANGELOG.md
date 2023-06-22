@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### Added
+
+- Continuous integration: ruff
+- ProxQP (LP variant) solver interface
+
 ### Changed
 
 - Bumped pycddlib dependency to 2.1.7
