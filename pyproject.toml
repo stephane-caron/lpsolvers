@@ -32,13 +32,10 @@ dependencies = [
 keywords = ["linear programming", "solver", "numerical optimization"]
 
 [project.optional-dependencies]
-all_pypi_solvers = [
+solvers = [
     "cvxopt >=1.2.6",
     "cvxpy >=1.1.11",
     "pycddlib >=2.1.4",
-]
-doc = [
-    "sphinx",
 ]
 
 [project.urls]

@@ -10,14 +10,13 @@ Wrapper around Linear Programming (LP) solvers in Python, with a unified interfa
 
 ## Installation
 
-The simplest way to install this module is:
+To install the library and all open source LP solvers at the same time:
 
-```sh
-sudo apt install libgmp-dev python3-dev
-pip install lpsolvers
+```console
+$ pip install lpsolvers[solvers]
 ```
 
-You can add the ``--user`` parameter for a user-only installation.
+To install the library only, assuming LP solvers are installed separately: ``pip install lpsolvers``.
 
 ## Usage
 
