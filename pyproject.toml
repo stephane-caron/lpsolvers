@@ -35,6 +35,7 @@ keywords = ["linear programming", "solver", "numerical optimization"]
 solvers = [
     "cvxopt >=1.2.6",
     "cvxpy >=1.1.11",
+    "proxsuite >=0.2.9",
     "pycddlib >=2.1.4",
 ]
 
