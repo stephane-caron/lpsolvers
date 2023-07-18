@@ -86,9 +86,8 @@ jobs:
             - name: "Test with tox for ${{ matrix.os }}"
               env:
                   PLATFORM: ${{ matrix.os }}
-                  SYSTEM_VERSION_COMPAT: 0
               run: |
-                  tox
+                  tox -v
 
     typing:
         name: "Static type analysis"
