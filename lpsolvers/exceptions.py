@@ -22,5 +22,4 @@
 
 
 class SolverNotFound(Exception):
-
     """Exception raised when a requested solver is not found."""

@@ -23,7 +23,6 @@
 from typing import Optional
 
 import numpy as np
-
 from cvxpy import Minimize, Problem, Variable
 from numpy import array
 

@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with lpsolvers. If not, see <http://www.gnu.org/licenses/>.
 
-"""Linear programming solvers in Python with a unified API"""
+"""Linear programming solvers in Python with a unified API."""
 
 from typing import Optional
 
@@ -47,9 +47,7 @@ except ImportError:
         A: Optional[np.ndarray] = None,
         b: Optional[np.ndarray] = None,
     ) -> np.ndarray:
-        """
-        Error function defined when cdd is not available.
-        """
+        """Error function defined when cdd is not available."""
         raise ImportError("cdd not found")
 
 
@@ -71,9 +69,7 @@ except ImportError:
         solver: Optional[str] = None,
         **kwargs,
     ) -> np.ndarray:
-        """
-        Error function defined when CVXOPT is not available.
-        """
+        """Error function defined when CVXOPT is not available."""
         raise ImportError("CVXOPT not found")
 
 
@@ -96,9 +92,7 @@ except ImportError:
         verbose: bool = False,
         **kwargs,
     ) -> np.ndarray:
-        """
-        Error function defined when CVXPY is not available.
-        """
+        """Error function defined when CVXPY is not available."""
         raise ImportError("CVXPY not found")
 
 
@@ -122,9 +116,7 @@ except ImportError:
         backend: Optional[str] = None,
         **kwargs,
     ) -> np.ndarray:
-        """
-        Error function defined when ProxQP is not available.
-        """
+        """Error function defined when ProxQP is not available."""
         raise ImportError("ProxQP not found")
 
 

@@ -21,15 +21,12 @@
 """Solver interface for CVXOPT."""
 
 import logging
-
 from typing import Optional
 
 import cvxopt
 import cvxopt.solvers
 import numpy as np
-
 from cvxopt.solvers import lp
-
 
 cvxopt.solvers.options["show_progress"] = False  # disable cvxopt output
 
