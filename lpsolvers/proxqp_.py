@@ -116,12 +116,12 @@ def proxqp_solve_lp(
     use_csc: bool = (G is not None and not isinstance(G, np.ndarray)) or (
         A is not None and not isinstance(A, np.ndarray)
     )
-    backend = __select_backend(backend, use_csc)
-    problem = backend.QP(
+    proxqp_backend = __select_backend(backend, use_csc)
+    problem = proxqp_backend.QP(
         n=c.shape[0],
         n_eq=b.shape[0] if b is not None else 0,
         n_in=h.shape[0] if h is not None else 0,
-        hessian_type=backend.HessianType.Zero,
+        hessian_type=proxqp_backend.HessianType.Zero,
     )
     for key, value in kwargs.items():
         setattr(problem.settings, key, value)
