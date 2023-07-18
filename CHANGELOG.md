@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - Bumped pycddlib dependency to 2.1.7
+- The ``solver`` keyword argument is now mandatory
 
 ## [1.1.0] - 2022/03/17
 
