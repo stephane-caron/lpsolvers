@@ -24,7 +24,7 @@ from typing import Optional
 
 import numpy as np
 
-from .exceptions import SolverNotFound
+from .exceptions import NoSolverSelected, SolverNotFound
 
 __version__ = "1.1.0"
 
@@ -126,23 +126,22 @@ def solve_lp(
     h: np.ndarray,
     A: Optional[np.ndarray] = None,
     b: Optional[np.ndarray] = None,
-    solver="cvxopt",
+    solver: Optional[str] = None,
     **kwargs,
 ) -> np.ndarray:
-    """
-    Solve a Linear Program defined as:
+    r"""Solve a linear program using one of the available LP solvers.
+
+    The linear program is defined as:
 
     .. math::
 
-        \\begin{split}\\begin{array}{ll}
-            \\mbox{minimize} &
-                c^T x \\\\
-            \\mbox{subject to}
-                & G x \\leq h \\\\
+        \begin{split}\begin{array}{ll}
+            \mbox{minimize} &
+                c^T x \\
+            \mbox{subject to}
+                & G x \leq h \\
                 & A x = b
-        \\end{array}\\end{split}
-
-    using one of the available LP solvers.
+        \end{array}\end{split}
 
     Parameters
     ----------
@@ -178,6 +177,11 @@ def solve_lp(
     feasibility tolerance by ``solve_lp(c, G, h, solver='proxqp',
     eps_abs=1e-8)``.
     """
+    if solver is None:
+        raise NoSolverSelected(
+            "Set the `solver` keyword argument to one of the "
+            f"available solvers in {available_solvers}"
+        )
     if isinstance(G, np.ndarray) and G.ndim == 1:
         G = G.reshape((1, G.shape[0]))
     if solver == "cdd":

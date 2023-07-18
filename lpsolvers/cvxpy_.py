@@ -37,21 +37,22 @@ def cvxpy_solve_lp(
     verbose: bool = False,
     **kwargs,
 ) -> np.ndarray:
-    """
-    Solve a linear program defined as:
+    r"""Solve a linear program using CVXPY.
+
+    The linear program is defined by:
 
     .. math::
 
-        \\begin{split}\\begin{array}{ll}
-        \\mbox{minimize}
-            & c^T x \\\\
-        \\mbox{subject to}
-            & G x \\leq h \\\\
+        \begin{split}\begin{array}{ll}
+        \mbox{minimize}
+            & c^T x \\
+        \mbox{subject to}
+            & G x \leq h \\
             & A x = b
-        \\end{array}\\end{split}
+        \end{array}\end{split}
 
-    calling a given solver using the `CVXPY <http://www.cvxpy.org/>`_ modelling
-    language.
+    It is solved using a solver wrapped by `CVXPY <http://www.cvxpy.org/>`_.
+    The underlying solver is selected via the corresponding keyword argument.
 
     Parameters
     ----------

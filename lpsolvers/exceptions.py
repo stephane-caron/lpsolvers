@@ -21,5 +21,13 @@
 """Exceptions."""
 
 
-class SolverNotFound(Exception):
+class LPSolverException(Exception):
+    """Base class for lpsolvers exception."""
+
+
+class SolverNotFound(LPSolverException):
     """Exception raised when a requested solver is not found."""
+
+
+class NoSolverSelected(LPSolverException):
+    """Exception raised when the `solver` keyword argument is not set."""
