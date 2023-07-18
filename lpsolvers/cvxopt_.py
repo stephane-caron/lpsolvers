@@ -75,20 +75,21 @@ def cvxopt_solve_lp(
     solver: Optional[str] = GLPK_IF_AVAILABLE,
     **kwargs,
 ) -> np.ndarray:
-    """
-    Solve a linear program defined by:
+    r"""Solve a linear program using CVXOPT.
+
+    The linear program is defined by:
 
     .. math::
 
-        \\begin{split}\\begin{array}{ll}
-            \\mbox{minimize} &
-                c^T x \\\\
-            \\mbox{subject to}
-                & G x \\leq h \\\\
+        \begin{split}\begin{array}{ll}
+            \mbox{minimize} &
+                c^T x \\
+            \mbox{subject to}
+                & G x \leq h \\
                 & A x = b
-        \\end{array}\\end{split}
+        \end{array}\end{split}
 
-    using the LP solver from `CVXOPT <http://cvxopt.org/>`_.
+    It is solved using the LP solver from `CVXOPT <http://cvxopt.org/>`_.
 
     Parameters
     ----------

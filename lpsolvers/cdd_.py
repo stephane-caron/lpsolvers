@@ -33,8 +33,9 @@ def cdd_solve_lp(
     A: Optional[np.ndarray] = None,
     b: Optional[np.ndarray] = None,
 ) -> np.ndarray:
-    """
-    Solve a linear program defined by:
+    r"""Solve a linear program using the LP solver from cdd.
+
+    The linear program is defined by:
 
     .. math::
 
@@ -46,7 +47,7 @@ def cdd_solve_lp(
                 & A x = b
         \\end{array}\\end{split}
 
-    using the LP solver from `cdd <https://github.com/mcmtroffaes/pycddlib>`_.
+    It is solved using `cdd <https://github.com/mcmtroffaes/pycddlib>`_.
 
     Parameters
     ----------
