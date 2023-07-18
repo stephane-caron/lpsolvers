@@ -56,11 +56,11 @@ def __select_backend(backend: Optional[str], use_csc: bool):
         If the required backend is not a valid ProxQP backend.
     """
     if backend is None:
-        return proxqp.sparse.QP if use_csc else proxqp.dense.QP
+        return proxqp.sparse if use_csc else proxqp.dense
     if backend == "dense":
-        return proxqp.dense.QP
+        return proxqp.dense
     if backend == "sparse":
-        return proxqp.sparse.QP
+        return proxqp.sparse
     raise ValueError(f'Unknown ProxQP backend "{backend}')
 
 
@@ -116,15 +116,15 @@ def proxqp_solve_lp(
     use_csc: bool = (G is not None and not isinstance(G, np.ndarray)) or (
         A is not None and not isinstance(A, np.ndarray)
     )
-    ProblemType = __select_backend(backend, use_csc)
-    problem = ProblemType(
+    backend = __select_backend(backend, use_csc)
+    problem = backend.QP(
         n=c.shape[0],
         n_eq=b.shape[0] if b is not None else 0,
         n_in=h.shape[0] if h is not None else 0,
+        hessian_type=backend.HessianType.Zero,
     )
     for key, value in kwargs.items():
         setattr(problem.settings, key, value)
-    problem.settings.problem_type = proxqp.problem_type.LP
     problem.settings.verbose = verbose
     problem.init(None, c, None, None, G, None, h)
     problem.solve()
