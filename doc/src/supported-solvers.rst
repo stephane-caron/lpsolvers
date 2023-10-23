@@ -1,4 +1,4 @@
-:github_url: https://github.com/stephane-caron/lpsolvers/tree/master/doc/src/supported-solvers.rst
+:github_url: https://github.com/stephane-caron/lpsolvers/tree/main/doc/src/supported-solvers.rst
 
 *****************
 Supported solvers

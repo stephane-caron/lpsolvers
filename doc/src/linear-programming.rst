@@ -1,4 +1,4 @@
-:github_url: https://github.com/stephane-caron/lpsolvers/tree/master/doc/src/linear-programming.rst
+:github_url: https://github.com/stephane-caron/lpsolvers/tree/main/doc/src/linear-programming.rst
 
 .. _Linear programming:
 
