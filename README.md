@@ -61,3 +61,4 @@ The list of supported solvers currently includes:
 - [CVXOPT](http://cvxopt.org/)
 - [CVXPY](https://www.cvxpy.org/) (interface)
 - [cdd](https://github.com/mcmtroffaes/pycddlib)
+- [ProxQP](https://github.com/Simple-Robotics/proxsuite#proxqp)
