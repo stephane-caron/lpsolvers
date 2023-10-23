@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Unreleased
+
+### Changed
+
+- Bumped pycddlib dependency to 2.1.7
+
 ## [1.1.0] - 2022/03/17
 
 ### Changed
