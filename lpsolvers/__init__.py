@@ -26,7 +26,7 @@ import numpy as np
 
 from .exceptions import NoSolverSelected, SolverNotFound
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
 
 available_solvers = []
 
