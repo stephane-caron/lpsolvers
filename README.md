@@ -48,7 +48,8 @@ c = array([1., 2., 3.])
 G = array([[1., 2., -1.], [2., 0., 1.], [1., 2., 1.], [-1., -1., -1.]])
 h = array([4., 1., 3., 2.])
 
-print "LP solution:", solve_lp(c, G, h)
+x = solve_lp(c, G, h)
+print(f"LP solution: {x=}")
 ```
 
 This example outputs the solution ``[2.2, -0.8, -3.4]``.
