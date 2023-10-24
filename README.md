@@ -58,7 +58,7 @@ This example outputs the solution ``[2.2, -0.8, -3.4]``.
 
 The list of supported solvers currently includes:
 
+- [cdd](https://github.com/mcmtroffaes/pycddlib)
 - [CVXOPT](http://cvxopt.org/)
 - [CVXPY](https://www.cvxpy.org/) (interface)
-- [cdd](https://github.com/mcmtroffaes/pycddlib)
 - [ProxQP](https://github.com/Simple-Robotics/proxsuite#proxqp)
