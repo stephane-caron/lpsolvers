@@ -10,7 +10,7 @@ Wrapper around Linear Programming (LP) solvers in Python, with a unified interfa
 
 ## Installation
 
-To install the library and all open source LP solvers at the same time:
+To install the library and all available LP solvers at the same time:
 
 ```console
 $ pip install lpsolvers[solvers]
