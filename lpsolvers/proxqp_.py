@@ -56,7 +56,6 @@ def proxqp_solve_lp(
     h: np.ndarray,
     A: Optional[np.ndarray] = None,
     b: Optional[np.ndarray] = None,
-    initvals: Optional[np.ndarray] = None,
     verbose: bool = False,
     backend: Optional[str] = None,
     **kwargs,
@@ -75,8 +74,6 @@ def proxqp_solve_lp(
         Linear equality constraint matrix.
     b :
         Linear equality constraint vector.
-    initvals :
-        Warm-start guess vector.
     backend :
         ProxQP backend to use in ``[None, "dense", "sparse"]``. If ``None``
         (default), the backend is selected based on the type of ``P``.
@@ -88,12 +85,6 @@ def proxqp_solve_lp(
     :
         Solution to the QP returned by the solver.
 
-    Raises
-    ------
-    ParamError
-        If a warm-start value is given both in `initvals` and the `x` keyword
-        argument.
-
     Notes
     -----
     All other keyword arguments are forwarded as solver settings to ProxQP. For
@@ -101,12 +92,6 @@ def proxqp_solve_lp(
     out the `solver documentation
     <https://simple-robotics.github.io/proxsuite/>`__ for details.
     """
-    if initvals is not None:
-        if "x" in kwargs:
-            raise ValueError(
-                "Warm-start value specified in both `initvals` and `x` kwargs"
-            )
-        kwargs["x"] = initvals
     use_csc: bool = (G is not None and not isinstance(G, np.ndarray)) or (
         A is not None and not isinstance(A, np.ndarray)
     )

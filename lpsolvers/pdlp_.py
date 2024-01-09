@@ -27,7 +27,6 @@ def pdlp_solve_lp(
     h: np.ndarray,
     A: Optional[np.ndarray] = None,
     b: Optional[np.ndarray] = None,
-    initvals: Optional[np.ndarray] = None,
     verbose: bool = False,
     eps_optimal_absolute: Optional[float] = None,
     eps_optimal_relative: Optional[float] = None,
@@ -48,8 +47,6 @@ def pdlp_solve_lp(
         Linear equality constraint matrix.
     b :
         Linear equality constraint vector.
-    initvals :
-        Warm-start guess vector.
     verbose :
         Set to `True` to print out extra information.
     verbose :

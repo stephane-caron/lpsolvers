@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 
 ### Removed
 
+- ProxQP: Unused ``initvals`` argument in interface
 - Remove top-level ``__init__.py``
 
 ## [1.2.0] - 2023-10-23
