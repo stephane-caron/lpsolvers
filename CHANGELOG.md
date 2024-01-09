@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.2.0] - 2023/10/23
+## [Unreleased]
+
+### Changed
+
+- Rename optional deps for open source solvers
+
+## [1.2.0] - 2023-10-23
 
 ### Added
 
@@ -14,7 +20,7 @@ All notable changes to this project will be documented in this file.
 - Bumped pycddlib dependency to 2.1.7
 - The ``solver`` keyword argument is now mandatory
 
-## [1.1.0] - 2022/03/17
+## [1.1.0] - 2022-03-17
 
 ### Changed
 
@@ -24,7 +30,7 @@ All notable changes to this project will be documented in this file.
 
 - Add CVXPY to test environment
 
-## [1.0.1] - 2022/03/16
+## [1.0.1] - 2022-03-16
 
 ### Added
 
@@ -34,7 +40,7 @@ All notable changes to this project will be documented in this file.
 
 - Add license to project config
 
-## [1.0.0] - 2022/03/16
+## [1.0.0] - 2022-03-16
 
 ### Added
 
@@ -45,7 +51,7 @@ All notable changes to this project will be documented in this file.
 
 - Remove dependency on quadprog
 
-## [0.9.0] - 2022/03/07
+## [0.9.0] - 2022-03-07
 
 ### Added
 
@@ -60,3 +66,10 @@ All notable changes to this project will be documented in this file.
 - Improve code coverage to 84%
 - Improve linter code rating to 10/10
 - Switch from ``setup.py`` to ``pyproject.toml``
+
+[unreleased]: https://github.com/qpsolvers/qpsolvers/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/qpsolvers/qpsolvers/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/qpsolvers/qpsolvers/compare/v1.0.1...v1.1.0
+[1.0.1]: https://github.com/qpsolvers/qpsolvers/compare/v1.0.0...v1.0.1
+[1.0.0]: https://github.com/qpsolvers/qpsolvers/compare/v0.9.0...v1.0.0
+[0.9.0]: https://github.com/qpsolvers/qpsolvers/releases/tag/v0.9.0
