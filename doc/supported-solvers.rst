@@ -7,19 +7,23 @@ Supported solvers
 CVXOPT
 ======
 
-.. autofunction:: lpsolvers.cvxopt_solve_lp
+.. automodule:: lpsolvers.cvxopt_
+    :members:
 
 CVXPY
 =====
 
-.. autofunction:: lpsolvers.cvxpy_solve_lp
+.. automodule:: lpsolvers.cvxpy_
+    :members:
 
 cdd
 ===
 
-.. autofunction:: lpsolvers.cdd_solve_lp
+.. automodule:: lpsolvers.cdd_
+    :members:
 
 ProxQP
 ======
 
-.. autofunction:: lpsolvers.proxqp_solve_lp
+.. automodule:: lpsolvers.proxqp_
+    :members:
