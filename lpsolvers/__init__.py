@@ -197,6 +197,8 @@ def solve_lp(
         return cvxopt_solve_lp(c, G, h, A, b, **kwargs)
     if solver == "cvxpy":
         return cvxpy_solve_lp(c, G, h, A, b, **kwargs)
+    if solver == "pdlp":
+        return pdlp_solve_lp(c, G, h, A, b, **kwargs)
     if solver == "proxqp":
         return proxqp_solve_lp(c, G, h, A, b, **kwargs)
     raise SolverNotFound(f"solver '{solver}' is not available")
