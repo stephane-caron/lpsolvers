@@ -98,6 +98,9 @@ except ImportError:
         A: Optional[np.ndarray] = None,
         b: Optional[np.ndarray] = None,
         verbose: bool = False,
+        eps_optimal_absolute: Optional[float] = None,
+        eps_optimal_relative: Optional[float] = None,
+        time_sec_limits: Optional[float] = None,
         **kwargs,
     ) -> np.ndarray:
         """Error function defined when PDLP is not available."""
