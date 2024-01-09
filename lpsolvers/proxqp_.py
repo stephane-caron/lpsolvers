@@ -65,8 +65,16 @@ def proxqp_solve_lp(
 
     Parameters
     ----------
-    problem :
-        Quadratic program to solve.
+    c :
+        Linear cost vector.
+    G :
+        Linear inequality constraint matrix.
+    h :
+        Linear inequality constraint vector.
+    A :
+        Linear equality constraint matrix.
+    b :
+        Linear equality constraint vector.
     initvals :
         Warm-start guess vector.
     backend :

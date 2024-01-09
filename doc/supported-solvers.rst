@@ -22,6 +22,12 @@ cdd
 .. automodule:: lpsolvers.cdd_
     :members:
 
+PDLP
+====
+
+.. automodule:: lpsolvers.pdlp_
+    :members:
+
 ProxQP
 ======
 
