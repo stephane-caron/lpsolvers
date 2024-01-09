@@ -1,39 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
+# SPDX-License-Identifier: LGPL-3.0-or-later
 # Copyright (C) 2016-2022 Stéphane Caron
-#
-# This file is part of lpsolvers.
-#
-# lpsolvers is free software: you can redistribute it and/or modify it under
-# the terms of the GNU Lesser General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option) any
-# later version.
-#
-# lpsolvers is distributed in the hope that it will be useful, but WITHOUT ANY
-# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
-# A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more
-# details.
-#
-# You should have received a copy of the GNU Lesser General Public License
-# along with lpsolvers. If not, see <http://www.gnu.org/licenses/>.
+
+from numpy import array
 
 from lpsolvers import available_solvers, solve_lp
-from numpy import array
 
 problems = []
 
-c = array([1., 2., 3.])
-G = array([
-    [1., 2., -1.],
-    [2., 0., 1.],
-    [1., 2., 1.],
-    [-1., -1., -1.]])
-h = array([4., 1., 3., 2.])
-A = array([
-    [2., 0., 0.],
-    [0., 0., 1.]])
-b = array([1., 0.])
+c = array([1.0, 2.0, 3.0])
+G = array(
+    [[1.0, 2.0, -1.0], [2.0, 0.0, 1.0], [1.0, 2.0, 1.0], [-1.0, -1.0, -1.0]]
+)
+h = array([4.0, 1.0, 3.0, 2.0])
+A = array([[2.0, 0.0, 0.0], [0.0, 0.0, 1.0]])
+b = array([1.0, 0.0])
 problems.append((c, G, h, A, b))
 
 if __name__ == "__main__":
