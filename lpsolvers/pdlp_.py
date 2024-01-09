@@ -17,7 +17,7 @@ from typing import Optional
 
 import numpy as np
 import scipy.sparse as spa
-from ortools.pdlp import solvers_pb2, solve_log_pb2
+from ortools.pdlp import solve_log_pb2, solvers_pb2
 from ortools.pdlp.python import pdlp
 
 
@@ -60,18 +60,18 @@ def pdlp_solve_lp(
     time_sec_limits :
         Maximum computation time the solver is allowed, in seconds.
 
-    Parameters
-    ----------
     Returns
     -------
     :
         Primal solution to the QP, if found, otherwise ``None``.
+
     Notes
     -----
     All other keyword arguments are forwarded as parameters to PDLP. For
     instance, you can call ``pdlp_solve_qp(P, q, G, h, num_threads=3,
     verbosity_level=2)``. For a quick overview, the solver accepts the
     following settings:
+
     .. list-table::
        :widths: 30 70
        :header-rows: 1
@@ -89,6 +89,7 @@ def pdlp_solve_lp(
            constraint matrix.
        * - ``l2_norm_rescaling``
          - If set to ``True``, applies L2-norm rescaling after Ruiz rescaling.
+
     This list is not exhaustive. Check out the solver's `Protocol Bufffers file
     <https://github.com/google/or-tools/blob/8768ed7a43f8899848effb71295a790f3ecbe2f2/ortools/pdlp/solvers.proto>`__
     for more. See also the `Mathematical background for PDLP
