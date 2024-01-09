@@ -2,7 +2,7 @@
 
 [![CI](https://img.shields.io/github/actions/workflow/status/stephane-caron/lpsolvers/test.yml?branch=main)](https://github.com/stephane-caron/lpsolvers/actions)
 [![Coverage](https://coveralls.io/repos/github/stephane-caron/lpsolvers/badge.svg?branch=main)](https://coveralls.io/github/stephane-caron/lpsolvers?branch=main)
-[![Documentation](https://img.shields.io/badge/docs-online-brightgreen?logo=read-the-docs&style=flat)](https://scaron.info/doc/lpsolvers/)
+[![Documentation](https://img.shields.io/github/actions/workflow/status/qpsolvers/qpsolvers/docs.yml?branch=main&label=docs)](https://stephane-caron.github.io/lpsolvers/)
 [![PyPI version](https://img.shields.io/pypi/v/lpsolvers)](https://pypi.org/project/lpsolvers/)
 ![Status](https://img.shields.io/pypi/status/lpsolvers)
 
@@ -20,7 +20,7 @@ To install the library only, assuming LP solvers are installed separately: ``pip
 
 ## Usage
 
-The function [`solve_lp`](https://scaron.info/doc/lpsolvers/linear-programming.html#lpsolvers.solve_lp) is called with the ``solver`` keyword argument to select the backend solver. The linear program it solves is, in standard form:
+The function [`solve_lp`](https://stephane-caron.github.io/lpsolvers//linear-programming.html#lpsolvers.solve_lp) is called with the ``solver`` keyword argument to select the backend solver. The linear program it solves is, in standard form:
 
 $$
 \begin{split}

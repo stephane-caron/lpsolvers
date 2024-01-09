@@ -22,9 +22,6 @@ try:
     import cvxopt.glpk
 
     GLPK_IF_AVAILABLE = "glpk"
-    # GLPK is the fastest LP solver I could find so far:
-    # <https://scaron.info/blog/linear-programming-in-python-with-cvxopt.html>
-    # ... however, it's verbose by default, so we tone it down:
     cvxopt.solvers.options["glpk"] = {"msg_lev": "GLP_MSG_OFF"}  # cvxopt 1.1.8
     cvxopt.solvers.options["msg_lev"] = "GLP_MSG_OFF"  # cvxopt 1.1.7
     cvxopt.solvers.options["LPX_K_MSGLEV"] = 0  # previous versions
