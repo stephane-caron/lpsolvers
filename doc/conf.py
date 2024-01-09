@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2016-2022 Stéphane Caron
+# Copyright 2016-2022 Stéphane Caron
+# Copyright 2024 Inria
 #
 # This file is part of lpsolvers.
 #
@@ -41,7 +42,7 @@ extensions = [
 ]
 
 # List of modules to be mocked up
-autodoc_mock_imports = ["ecos", "gurobipy", "mosek", "osqp", "qpoases"]
+autodoc_mock_imports = []
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = []
@@ -57,7 +58,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "lpsolvers"
-copyright = "2016-2022 Stéphane Caron"
+copyright = "2016-2024 Stéphane Caron and the lpsolvers contributors."
 author = "Stéphane Caron"
 
 # The version info for the project you're documenting, acts as replacement for
