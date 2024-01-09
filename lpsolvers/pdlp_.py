@@ -13,16 +13,12 @@ high-accuracy solutions and scaling to large problems. If you use PDLP in your
 academic works, consider citing the corresponding paper [Applegate2021]_.
 """
 
-from typing import Optional, Union
+from typing import Optional
 
 import numpy as np
 import scipy.sparse as spa
-from ortools.pdlp import solve_log_pb2, solvers_pb2
+from ortools.pdlp import solvers_pb2
 from ortools.pdlp.python import pdlp
-
-from ..conversions import ensure_sparse_matrices
-from ..problem import Problem
-from ..solution import Solution
 
 
 def pdlp_solve_lp(
@@ -37,7 +33,7 @@ def pdlp_solve_lp(
     eps_optimal_relative: Optional[float] = None,
     time_sec_limits: Optional[float] = None,
     **kwargs,
-) -> Solution:
+) -> np.ndarray:
     """Solve a quadratic program using PDLP.
 
     Parameters
@@ -66,6 +62,7 @@ def pdlp_solve_lp(
         *e.g.* [tolerances]_ for an overview of solver tolerances.
     time_sec_limits :
         Maximum computation time the solver is allowed, in seconds.
+
     Parameters
     ----------
     Returns
@@ -140,59 +137,4 @@ def pdlp_solve_lp(
         setattr(params, param, value)
 
     result = pdlp.primal_dual_hybrid_gradient(qp, params)
-    solve_log = result.solve_log
-
-    solution = Solution(problem)
-    solution.extras = {
-        "solve_log": solve_log,
-        "solve_time_sec": solve_log.solve_time_sec,
-    }
-    solution.found = (
-        solve_log.termination_reason
-        == solve_log_pb2.TERMINATION_REASON_OPTIMAL
-    )
-    solution.x = result.primal_solution
-    m = G.shape[0] if G is not None else 0
-    meq = A.shape[0] if A is not None else 0
-    y_pdlp = result.dual_solution
-    solution.z = y_pdlp[:m] if G is not None else np.empty((0,))
-    solution.y = y_pdlp[m : m + meq] if A is not None else np.empty((0,))
-    if lb is not None or ub is not None:
-        solution.z_box = result.reduced_costs
-    return solution
-
-
-def pdlp_solve_qp(
-    P: Union[np.ndarray, spa.csc_matrix],
-    q: Union[np.ndarray, spa.csc_matrix],
-    G: Optional[Union[np.ndarray, spa.csc_matrix]] = None,
-    h: Optional[Union[np.ndarray, spa.csc_matrix]] = None,
-    A: Optional[Union[np.ndarray, spa.csc_matrix]] = None,
-    b: Optional[Union[np.ndarray, spa.csc_matrix]] = None,
-    lb: Optional[Union[np.ndarray, spa.csc_matrix]] = None,
-    ub: Optional[Union[np.ndarray, spa.csc_matrix]] = None,
-    initvals: Optional[np.ndarray] = None,
-    verbose: bool = False,
-    eps_optimal_absolute: Optional[float] = None,
-    eps_optimal_relative: Optional[float] = None,
-    time_sec_limits: Optional[float] = None,
-    **kwargs,
-) -> Optional[np.ndarray]:
-    r"""Solve a quadratic program using PDLP.
-    The quadratic program is defined as:
-    .. math::
-        \begin{split}\begin{array}{ll}
-        \underset{\mbox{minimize}}{x} &
-            \frac{1}{2} x^T P x + q^T x \\
-        \mbox{subject to}
-            & G x \leq h                \\
-            & A x = b                   \\
-            & lb \leq x \leq ub
-        \end{array}\end{split}
-    It is solved using `PDLP
-    <https://developers.google.com/optimization/lp/pdlp_math>`__.
-
-    """
-    problem = Problem(P, q, G, h, A, b, lb, ub)
-    solution = pdlp_solve_problem(problem, initvals, verbose, **kwargs)
-    return solution.x if solution.found else None
+    return result.primal_solution
