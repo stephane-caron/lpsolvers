@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.
 
 - Rename optional deps for open source solvers
 
+### Removed
+
+- Remove top-level ``__init__.py``
+
 ## [1.2.0] - 2023-10-23
 
 ### Added
