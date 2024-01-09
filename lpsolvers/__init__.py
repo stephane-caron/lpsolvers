@@ -97,7 +97,6 @@ except ImportError:
         h: np.ndarray,
         A: Optional[np.ndarray] = None,
         b: Optional[np.ndarray] = None,
-        initvals: Optional[np.ndarray] = None,
         verbose: bool = False,
         **kwargs,
     ) -> np.ndarray:
@@ -120,7 +119,6 @@ except ImportError:
         h: np.ndarray,
         A: Optional[np.ndarray] = None,
         b: Optional[np.ndarray] = None,
-        initvals: Optional[np.ndarray] = None,
         verbose: bool = False,
         backend: Optional[str] = None,
         **kwargs,
