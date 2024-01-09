@@ -17,7 +17,7 @@ from typing import Optional
 
 import numpy as np
 import scipy.sparse as spa
-from ortools.pdlp import solvers_pb2
+from ortools.pdlp import solvers_pb2, solve_log_pb2
 from ortools.pdlp.python import pdlp
 
 
@@ -134,4 +134,7 @@ def pdlp_solve_lp(
         setattr(params, param, value)
 
     result = pdlp.primal_dual_hybrid_gradient(qp, params)
+    log = result.solve_log
+    if log.termination_reason != solve_log_pb2.TERMINATION_REASON_OPTIMAL:
+        raise ValueError("Linear program is not feasible")
     return result.primal_solution
