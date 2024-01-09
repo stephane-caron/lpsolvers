@@ -75,6 +75,7 @@ def pdlp_solve_lp(
     .. list-table::
        :widths: 30 70
        :header-rows: 1
+
        * - Name
          - Effect
        * - ``num_threads``
