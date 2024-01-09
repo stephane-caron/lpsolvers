@@ -61,4 +61,5 @@ The list of supported solvers currently includes:
 - [cdd](https://github.com/mcmtroffaes/pycddlib)
 - [CVXOPT](http://cvxopt.org/)
 - [CVXPY](https://www.cvxpy.org/) (interface)
+- [PDLP](https://developers.google.com/optimization/lp/pdlp_math)
 - [ProxQP](https://github.com/Simple-Robotics/proxsuite#proxqp)
