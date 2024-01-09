@@ -37,8 +37,7 @@ cdd = ["pycddlib >=2.1.7"]
 cvxopt = ["cvxopt >=1.2.6"]
 cvxpy = ["cvxpy >=1.1.11"]
 proxqp = ["proxsuite >=0.4.0"]
-solvers = ["lpsolvers[cdd,cvxopt,cvxpy,proxqp]"]
-all = ["lpsolvers[cdd,cvxopt,cvxpy,proxqp]"]
+open_source_solvers = ["lpsolvers[cdd,cvxopt,cvxpy,proxqp]"]
 
 [project.urls]
 Documentation = "https://scaron.info/doc/lpsolvers/"
