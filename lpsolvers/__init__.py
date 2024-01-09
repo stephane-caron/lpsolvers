@@ -82,6 +82,29 @@ except ImportError:
         raise ImportError("CVXPY not found")
 
 
+# PDLP
+# ====
+
+try:
+    from .pdlp_ import pdlp_solve_lp
+
+    available_solvers.append("pdlp")
+except ImportError:
+
+    def pdlp_solve_lp(
+        c: np.ndarray,
+        G: np.ndarray,
+        h: np.ndarray,
+        A: Optional[np.ndarray] = None,
+        b: Optional[np.ndarray] = None,
+        initvals: Optional[np.ndarray] = None,
+        verbose: bool = False,
+        **kwargs,
+    ) -> np.ndarray:
+        """Error function defined when PDLP is not available."""
+        raise ImportError("PDLP not found")
+
+
 # ProxQP
 # ======
 
@@ -187,6 +210,7 @@ __all__ = [
     "cdd_solve_lp",
     "cvxopt_solve_lp",
     "cvxpy_solve_lp",
+    "pdlp_solve_lp",
     "proxqp_solve_lp",
     "solve_lp",
 ]
