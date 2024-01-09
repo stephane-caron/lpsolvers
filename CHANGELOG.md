@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- PDLP solver interface
+
 ### Changed
 
 - Rename optional deps for open source solvers
