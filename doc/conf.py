@@ -55,9 +55,7 @@ version = None
 release = None
 
 # Read version info directly from the module's __init__.py
-init_path = join(
-    dirname(dirname(dirname(str(abspath(__file__))))), "lpsolvers"
-)
+init_path = join(dirname(dirname(str(abspath(__file__)))), "lpsolvers")
 with open(f"{init_path}/__init__.py", "r") as fh:
     for line in fh:
         match = re.match('__version__ = "((\\d.\\d).\\d)[a-z0-9\\-]*".*', line)
@@ -71,7 +69,7 @@ with open(f"{init_path}/__init__.py", "r") as fh:
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = "en"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
