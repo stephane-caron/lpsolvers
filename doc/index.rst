@@ -28,5 +28,4 @@ The library provides a one-stop shop :func:`.solve_lp` function with a
     installation.rst
     linear-programming.rst
     supported-solvers.rst
-
-You can also download this documentation as a `PDF document <lpsolvers.pdf>`_.
+    references.rst

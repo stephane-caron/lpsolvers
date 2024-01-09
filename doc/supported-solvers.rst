@@ -18,3 +18,8 @@ cdd
 ===
 
 .. autofunction:: lpsolvers.cdd_solve_lp
+
+ProxQP
+======
+
+.. autofunction:: lpsolvers.proxqp_solve_lp
