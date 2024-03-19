@@ -22,6 +22,14 @@ $ pip install lpsolvers[open_source_solvers]
 
 To install the library only, assuming LP solvers are installed separately: ``pip install lpsolvers``.
 
+### Conda
+
+[![Conda version](https://anaconda.org/conda-forge/lpsolvers/badges/version.svg)](https://anaconda.org/conda-forge/lpsolvers)
+
+```console
+conda install -c conda-forge lpsolvers
+```
+
 ## Usage
 
 The function [`solve_lp`](https://stephane-caron.github.io/lpsolvers//linear-programming.html#lpsolvers.solve_lp) is called with the ``solver`` keyword argument to select the backend solver. The linear program it solves is, in standard form:
