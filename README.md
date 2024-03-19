@@ -10,6 +10,10 @@ Wrapper around Linear Programming (LP) solvers in Python, with a unified interfa
 
 ## Installation
 
+### PyPI
+
+[![PyPI version](https://img.shields.io/pypi/v/lpsolvers)](https://pypi.org/project/lpsolvers/)
+
 To install the library and all available LP solvers at the same time:
 
 ```console
