@@ -10,7 +10,15 @@ Wrapper around Linear Programming (LP) solvers in Python, with a unified interfa
 
 ## Installation
 
-### PyPI
+### From conda-forge
+
+[![Conda version](https://anaconda.org/conda-forge/lpsolvers/badges/version.svg)](https://anaconda.org/conda-forge/lpsolvers)
+
+```console
+conda install -c conda-forge lpsolvers
+```
+
+### From PyPI
 
 [![PyPI version](https://img.shields.io/pypi/v/lpsolvers)](https://pypi.org/project/lpsolvers/)
 
@@ -21,14 +29,6 @@ $ pip install lpsolvers[open_source_solvers]
 ```
 
 To install the library only, assuming LP solvers are installed separately: ``pip install lpsolvers``.
-
-### Conda
-
-[![Conda version](https://anaconda.org/conda-forge/lpsolvers/badges/version.svg)](https://anaconda.org/conda-forge/lpsolvers)
-
-```console
-conda install -c conda-forge lpsolvers
-```
 
 ## Usage
 
