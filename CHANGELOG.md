@@ -4,9 +4,17 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- Python 3.11 is now supported
+
 ### Changed
 
 - CICD: Switch from Black to the Ruff Formatter
+
+### Removed
+
+- Python 3.7 is not supported any more
 
 ## [2.0.0] - 2024-01-09
 
