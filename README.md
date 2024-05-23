@@ -22,7 +22,7 @@ conda install -c conda-forge lpsolvers
 To install the library and all available LP solvers at the same time:
 
 ```console
-$ pip install lpsolvers[open_source_solvers]
+pip install lpsolvers[open_source_solvers]
 ```
 
 To install the library only, assuming LP solvers are installed separately: ``pip install lpsolvers``.
