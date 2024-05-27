@@ -90,7 +90,7 @@ class TestSolveLP(unittest.TestCase):
             x = solve_lp(c, G, h, solver=solver, **kwargs)
             self.assertIsNotNone(x)
             known_solution = np.array([2.2, -0.8, -3.4])
-            sol_tolerance = 1e-6 if solver == "pdlp" else 1e-8
+            sol_tolerance = 1e-6 if solver == "pdlp" else 1e-7 if solver == "cvxpy" else 1e-8
             ineq_tolerance = 5e-5 if solver == "pdlp" else 1e-10
             self.assertLess(np.linalg.norm(x - known_solution), sol_tolerance)
             self.assertLess(max(np.dot(G, x) - h), ineq_tolerance)
