@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supported solvers &mdash; lpsolvers 2.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=51b770b3"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="_static/mathjax/tex-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="References" href="references.html" />
+    <link rel="prev" title="Linear programming" href="linear-programming.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            lpsolvers
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear-programming.html">Linear programming</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Supported solvers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-lpsolvers.cvxopt_">CVXOPT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lpsolvers.cvxopt_.cvxopt_matrix"><code class="docutils literal notranslate"><span class="pre">cvxopt_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lpsolvers.cvxopt_.cvxopt_solve_lp"><code class="docutils literal notranslate"><span class="pre">cvxopt_solve_lp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lpsolvers.cvxpy_">CVXPY</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lpsolvers.cvxpy_.cvxpy_solve_lp"><code class="docutils literal notranslate"><span class="pre">cvxpy_solve_lp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lpsolvers.cdd_">cdd</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lpsolvers.cdd_.cdd_solve_lp"><code class="docutils literal notranslate"><span class="pre">cdd_solve_lp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lpsolvers.pdlp_">PDLP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lpsolvers.pdlp_.pdlp_solve_lp"><code class="docutils literal notranslate"><span class="pre">pdlp_solve_lp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lpsolvers.proxqp_">ProxQP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lpsolvers.proxqp_.proxqp_solve_lp"><code class="docutils literal notranslate"><span class="pre">proxqp_solve_lp()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">lpsolvers</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Supported solvers</li>
+      <li class="wy-breadcrumbs-aside">
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/stephane-caron/lpsolvers/tree/main/doc/src/supported-solvers.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="supported-solvers">
+<h1>Supported solvers<a class="headerlink" href="#supported-solvers" title="Link to this heading"></a></h1>
+<section id="module-lpsolvers.cvxopt_">
+<span id="cvxopt"></span><h2>CVXOPT<a class="headerlink" href="#module-lpsolvers.cvxopt_" title="Link to this heading"></a></h2>
+<p>Solver interface for CVXOPT.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="lpsolvers.cvxopt_.cvxopt_matrix">
+<span class="sig-prename descclassname"><span class="pre">lpsolvers.cvxopt_.</span></span><span class="sig-name descname"><span class="pre">cvxopt_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">M</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lpsolvers.cvxopt_.cvxopt_matrix" title="Link to this definition"></a></dt>
+<dd><p>Convert matrix M to CVXOPT format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>M</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Matrix to convert.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">matrix</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Same matrix in CVXOPT format.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lpsolvers.cvxopt_.cvxopt_solve_lp">
+<span class="sig-prename descclassname"><span class="pre">lpsolvers.cvxopt_.</span></span><span class="sig-name descname"><span class="pre">cvxopt_solve_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'glpk'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lpsolvers.cvxopt_.cvxopt_solve_lp" title="Link to this definition"></a></dt>
+<dd><p>Solve a linear program using CVXOPT.</p>
+<p>The linear program is defined by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}\begin{array}{ll}
+    \mbox{minimize} &amp;
+        c^T x \\
+    \mbox{subject to}
+        &amp; G x \leq h \\
+        &amp; A x = b
+\end{array}\end{split}\end{split}\]</div>
+<p>It is solved using the LP solver from <a class="reference external" href="http://cvxopt.org/">CVXOPT</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Linear cost vector.</p></li>
+<li><p><strong>G</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Linear inequality constraint matrix.</p></li>
+<li><p><strong>h</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Linear inequality constraint vector.</p></li>
+<li><p><strong>A</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</span>) – Linear equality constraint matrix.</p></li>
+<li><p><strong>b</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</span>) – Linear equality constraint vector.</p></li>
+<li><p><strong>solver</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Solver to use, default is GLPK if available</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optimal (primal) solution of the linear program, if it exists.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the LP is not feasible.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-lpsolvers.cvxpy_">
+<span id="cvxpy"></span><h2>CVXPY<a class="headerlink" href="#module-lpsolvers.cvxpy_" title="Link to this heading"></a></h2>
+<p>Solver interface for CVXPY.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="lpsolvers.cvxpy_.cvxpy_solve_lp">
+<span class="sig-prename descclassname"><span class="pre">lpsolvers.cvxpy_.</span></span><span class="sig-name descname"><span class="pre">cvxpy_solve_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lpsolvers.cvxpy_.cvxpy_solve_lp" title="Link to this definition"></a></dt>
+<dd><p>Solve a linear program using CVXPY.</p>
+<p>The linear program is defined by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}\begin{array}{ll}
+\mbox{minimize}
+    &amp; c^T x \\
+\mbox{subject to}
+    &amp; G x \leq h \\
+    &amp; A x = b
+\end{array}\end{split}\end{split}\]</div>
+<p>It is solved using a solver wrapped by <a class="reference external" href="http://www.cvxpy.org/">CVXPY</a>.
+The underlying solver is selected via the corresponding keyword argument.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Linear cost vector.</p></li>
+<li><p><strong>G</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Linear inequality constraint matrix.</p></li>
+<li><p><strong>h</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Linear inequality constraint vector.</p></li>
+<li><p><strong>A</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</span>) – Linear equality constraint matrix.</p></li>
+<li><p><strong>b</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</span>) – Linear equality constraint vector.</p></li>
+<li><p><strong>solver</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Solver name in <code class="docutils literal notranslate"><span class="pre">cvxpy.installed_solvers()</span></code>.</p></li>
+<li><p><strong>verbose</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Set to <cite>True</cite> to print out extra information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>x</strong> – Optimal (primal) solution of the linear program, if it exists.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array, shape=(n,)</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the LP is not feasible.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-lpsolvers.cdd_">
+<span id="cdd"></span><h2>cdd<a class="headerlink" href="#module-lpsolvers.cdd_" title="Link to this heading"></a></h2>
+<p>Solver interface for cdd.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="lpsolvers.cdd_.cdd_solve_lp">
+<span class="sig-prename descclassname"><span class="pre">lpsolvers.cdd_.</span></span><span class="sig-name descname"><span class="pre">cdd_solve_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lpsolvers.cdd_.cdd_solve_lp" title="Link to this definition"></a></dt>
+<dd><p>Solve a linear program using the LP solver from cdd.</p>
+<p>The linear program is defined by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\\begin{split}\\begin{array}{ll}
+    \\mbox{minimize} &amp;
+        c^T x \\\\
+    \\mbox{subject to}
+        &amp; G x \\leq h \\\\
+        &amp; A x = b
+\\end{array}\\end{split}\end{split}\]</div>
+<p>It is solved using <a class="reference external" href="https://github.com/mcmtroffaes/pycddlib">cdd</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Linear cost vector.</p></li>
+<li><p><strong>G</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Linear inequality constraint matrix.</p></li>
+<li><p><strong>h</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Linear inequality constraint vector.</p></li>
+<li><p><strong>A</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</span>) – Linear equality constraint matrix.</p></li>
+<li><p><strong>b</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</span>) – Linear equality constraint vector.</p></li>
+<li><p><strong>solver</strong> – Solver to use, default is GLPK if available</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optimal (primal) solution of the linear program, if it exists.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the linear program is not feasible.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-lpsolvers.pdlp_">
+<span id="pdlp"></span><h2>PDLP<a class="headerlink" href="#module-lpsolvers.pdlp_" title="Link to this heading"></a></h2>
+<p>Solver interface for <a class="reference external" href="https://developers.google.com/optimization/lp/pdlp_math">PDLP</a>.</p>
+<p>PDLP is a first-order method for convex quadratic programming aiming for
+high-accuracy solutions and scaling to large problems. If you use PDLP in your
+academic works, consider citing the corresponding paper <a class="reference internal" href="references.html#applegate2021" id="id5"><span>[Applegate2021]</span></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="lpsolvers.pdlp_.pdlp_solve_lp">
+<span class="sig-prename descclassname"><span class="pre">lpsolvers.pdlp_.</span></span><span class="sig-name descname"><span class="pre">pdlp_solve_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps_optimal_absolute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps_optimal_relative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_sec_limits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lpsolvers.pdlp_.pdlp_solve_lp" title="Link to this definition"></a></dt>
+<dd><p>Solve a quadratic program using PDLP.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Linear cost vector.</p></li>
+<li><p><strong>G</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Linear inequality constraint matrix.</p></li>
+<li><p><strong>h</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Linear inequality constraint vector.</p></li>
+<li><p><strong>A</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</span>) – Linear equality constraint matrix.</p></li>
+<li><p><strong>b</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</span>) – Linear equality constraint vector.</p></li>
+<li><p><strong>verbose</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Set to <cite>True</cite> to print out extra information.</p></li>
+<li><p><strong>verbose</strong> – Set to <cite>True</cite> to print out extra information.</p></li>
+<li><p><strong>eps_optimal_absolute</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Absolute tolerance on the primal-dual residuals and duality gap. See
+<em>e.g.</em> <a class="reference internal" href="references.html#tolerances" id="id6"><span>[tolerances]</span></a> for an overview of solver tolerances.</p></li>
+<li><p><strong>eps_optimal_relative</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Relative tolerance on the primal-dual residuals and duality gap. See
+<em>e.g.</em> <a class="reference internal" href="references.html#tolerances" id="id7"><span>[tolerances]</span></a> for an overview of solver tolerances.</p></li>
+<li><p><strong>time_sec_limits</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Maximum computation time the solver is allowed, in seconds.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Primal solution to the QP, if found, otherwise <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>All other keyword arguments are forwarded as parameters to PDLP. For
+instance, you can call <code class="docutils literal notranslate"><span class="pre">pdlp_solve_qp(P,</span> <span class="pre">q,</span> <span class="pre">G,</span> <span class="pre">h,</span> <span class="pre">num_threads=3,</span>
+<span class="pre">verbosity_level=2)</span></code>. For a quick overview, the solver accepts the
+following settings:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Effect</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">num_threads</span></code></p></td>
+<td><p>Number of threads to use (positive).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">verbosity_level</span></code></p></td>
+<td><p>Verbosity level from 0 (no logging) to 4 (extensive logging).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">initial_primal_weight</span></code></p></td>
+<td><p>Initial value of the primal weight (ratio of primal over  dual step
+sizes).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">l_inf_ruiz_iterations</span></code></p></td>
+<td><p>Number of L-infinity Ruiz rescaling iterations applied to the
+constraint matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">l2_norm_rescaling</span></code></p></td>
+<td><p>If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, applies L2-norm rescaling after Ruiz rescaling.</p></td>
+</tr>
+</tbody>
+</table>
+<p>This list is not exhaustive. Check out the solver’s <a class="reference external" href="https://github.com/google/or-tools/blob/8768ed7a43f8899848effb71295a790f3ecbe2f2/ortools/pdlp/solvers.proto">Protocol Bufffers file</a>
+for more. See also the <a class="reference external" href="https://developers.google.com/optimization/lp/pdlp_math">Mathematical background for PDLP</a>.</p>
+</dd></dl>
+
+</section>
+<section id="module-lpsolvers.proxqp_">
+<span id="proxqp"></span><h2>ProxQP<a class="headerlink" href="#module-lpsolvers.proxqp_" title="Link to this heading"></a></h2>
+<p>Solver interface for <a class="reference external" href="https://github.com/Simple-Robotics/proxsuite#proxqp">ProxQP</a>.</p>
+<p>ProxQP is the QP solver from ProxSuite, a collection of open-source solvers
+rooted in revisited primal-dual proximal algorithms. If you use ProxQP in some
+academic work, consider citing the corresponding paper <a class="reference internal" href="references.html#bambade2022" id="id9"><span>[Bambade2022]</span></a>.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="lpsolvers.proxqp_.proxqp_solve_lp">
+<span class="sig-prename descclassname"><span class="pre">lpsolvers.proxqp_.</span></span><span class="sig-name descname"><span class="pre">proxqp_solve_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lpsolvers.proxqp_.proxqp_solve_lp" title="Link to this definition"></a></dt>
+<dd><p>Solve a quadratic program using ProxQP.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Linear cost vector.</p></li>
+<li><p><strong>G</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Linear inequality constraint matrix.</p></li>
+<li><p><strong>h</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Linear inequality constraint vector.</p></li>
+<li><p><strong>A</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</span>) – Linear equality constraint matrix.</p></li>
+<li><p><strong>b</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</span>) – Linear equality constraint vector.</p></li>
+<li><p><strong>backend</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – ProxQP backend to use in <code class="docutils literal notranslate"><span class="pre">[None,</span> <span class="pre">&quot;dense&quot;,</span> <span class="pre">&quot;sparse&quot;]</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code>
+(default), the backend is selected based on the type of <code class="docutils literal notranslate"><span class="pre">P</span></code>.</p></li>
+<li><p><strong>verbose</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Set to <cite>True</cite> to print out extra information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Solution to the QP returned by the solver.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>All other keyword arguments are forwarded as solver settings to ProxQP. For
+instance, you can call <code class="docutils literal notranslate"><span class="pre">proxqp_solve_qp(P,</span> <span class="pre">q,</span> <span class="pre">G,</span> <span class="pre">h,</span> <span class="pre">eps_abs=1e-6)</span></code>. Check
+out the <a class="reference external" href="https://simple-robotics.github.io/proxsuite/">solver documentation</a> for details.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="linear-programming.html" class="btn btn-neutral float-left" title="Linear programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="references.html" class="btn btn-neutral float-right" title="References" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2016-2024 Stéphane Caron and the lpsolvers contributors..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
