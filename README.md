@@ -3,9 +3,8 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/stephane-caron/lpsolvers/test.yml?branch=main)](https://github.com/stephane-caron/lpsolvers/actions)
 [![Coverage](https://coveralls.io/repos/github/stephane-caron/lpsolvers/badge.svg?branch=main)](https://coveralls.io/github/stephane-caron/lpsolvers?branch=main)
 [![Documentation](https://img.shields.io/github/actions/workflow/status/stephane-caron/lpsolvers/docs.yml?branch=main&label=docs)](https://stephane-caron.github.io/lpsolvers/)
-[![Conda version](https://anaconda.org/conda-forge/lpsolvers/badges/version.svg)](https://anaconda.org/conda-forge/lpsolvers)
+[![Conda version](https://img.shields.io/conda/vn/conda-forge/lpsolvers.svg)](https://anaconda.org/conda-forge/lpsolvers)
 [![PyPI version](https://img.shields.io/pypi/v/lpsolvers)](https://pypi.org/project/lpsolvers/)
-![Status](https://img.shields.io/pypi/status/lpsolvers)
 
 Wrapper around Linear Programming (LP) solvers in Python, with a unified interface.
 
