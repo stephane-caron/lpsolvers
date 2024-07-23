@@ -103,7 +103,7 @@ def pdlp_solve_lp(
     uc_pdlp = None
     if G is not None and h is not None:
         A_pdlp = G
-        lc_pdlp = np.full(h.shape, -np.infty)
+        lc_pdlp = np.full(h.shape, -np.inf)
         uc_pdlp = h
     if A is not None and b is not None:
         A_pdlp = A if A_pdlp is None else spa.vstack([A_pdlp, A], format="csc")
