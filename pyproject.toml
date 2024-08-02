@@ -41,6 +41,7 @@ proxqp = ["proxsuite >=0.4.0"]
 open_source_solvers = ["lpsolvers[cdd,cvxopt,cvxpy,pdlp,proxqp]"]
 
 [project.urls]
+Homepage = "https://github.com/stephane-caron/lpsolvers"
 Documentation = "https://stephane-caron.github.io/lpsolvers/"
 Source = "https://github.com/stephane-caron/lpsolvers"
 Tracker = "https://github.com/stephane-caron/lpsolvers/issues"
