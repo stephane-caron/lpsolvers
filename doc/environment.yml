@@ -9,7 +9,8 @@ dependencies:
         - cvxpy >= 1.1.11
         - ortools >= 9.8.3296
         - pycddlib >= 2.1.7
-        - sphinx >= 7.2.2
+        # sphinx-rtd-theme raises an error with sphinx >= 7
+        - sphinx < 7.0.0
         - sphinx-autodoc-typehints
         - sphinx-mathjax-offline
         - sphinx-rtd-theme >= 0.5.1
