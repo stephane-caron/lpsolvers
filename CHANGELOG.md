@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - CICD: Switch from Black to the Ruff Formatter
+- CICD: Update checkout action to v4
 
 ### Removed
 
