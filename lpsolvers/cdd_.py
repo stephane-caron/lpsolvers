@@ -70,7 +70,7 @@ def cdd_solve_lp(
     constraints = np.hstack([v, -U])
     objective = np.hstack([[0.0], c])
     lp = cdd.linprog_from_array(
-        np.vstack([constraints, objective]),
+        np.vstack([constraints, objective]),  # type: ignore
         obj_type=cdd.LPObjType.MIN,
     )
     cdd.linprog_solve(lp)
