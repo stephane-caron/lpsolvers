@@ -70,7 +70,7 @@ def cdd_solve_lp(
     mat = cdd.matrix_from_array(np.hstack([v, -U]))
     mat.obj_type = cdd.LPObjType.MIN
     mat.obj_func = [0.0] + list(c)
-    lp = cdd.LinProg(mat)
+    lp = cdd.linprog_from_matrix(mat)
     lp.solve()
     if lp.status != cdd.LPStatusType.OPTIMAL:
         raise ValueError(f"Linear program not feasible: {lp.status}")
