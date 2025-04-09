@@ -67,11 +67,13 @@ def cdd_solve_lp(
         v = h
         U = G
     v = v.reshape((v.shape[0], 1))
-    mat = cdd.matrix_from_array(np.hstack([v, -U]))
-    mat.obj_type = cdd.LPObjType.MIN
-    mat.obj_func = [0.0] + list(c)
-    lp = cdd.linprog_from_matrix(mat)
-    lp.solve()
+    constraints = np.hstack([v, -U])
+    objective = np.hstack([[0.0], c])
+    lp = cdd.linprog_from_array(
+        np.vstack([constraints, objective]),
+        obj_type=cdd.LPObjType.MIN,
+    )
+    cdd.linprog_solve(lp)
     if lp.status != cdd.LPStatusType.OPTIMAL:
         raise ValueError(f"Linear program not feasible: {lp.status}")
     return np.array(lp.primal_solution)
