@@ -87,6 +87,7 @@ jobs:
                   python-version: "${{ matrix.python-version }}"
 
             - name: "Install Debian dependencies"
+              if: startsWith(matrix.os, 'ubuntu')
               run: |
                   sudo apt-get install -y libcdd-dev libgmp3-dev
 
