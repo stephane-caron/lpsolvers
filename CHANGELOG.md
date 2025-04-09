@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 
 - CICD: Switch from Black to the Ruff Formatter
 - CICD: Update checkout action to v4
+- Update to pycddlib 3.0 API
 
 ### Removed
 

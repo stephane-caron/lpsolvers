@@ -67,7 +67,7 @@ def cdd_solve_lp(
         v = h
         U = G
     v = v.reshape((v.shape[0], 1))
-    mat = cdd.Matrix(np.hstack([v, -U]), number_type="float")
+    mat = cdd.matrix_from_array(np.hstack([v, -U]))
     mat.obj_type = cdd.LPObjType.MIN
     mat.obj_func = [0.0] + list(c)
     lp = cdd.LinProg(mat)
