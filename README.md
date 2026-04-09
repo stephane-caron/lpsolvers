@@ -1,73 +1,31 @@
 # LP Solvers for Python
 
-[![CI](https://img.shields.io/github/actions/workflow/status/stephane-caron/lpsolvers/test.yml?branch=main)](https://github.com/stephane-caron/lpsolvers/actions)
-[![Documentation](https://img.shields.io/github/actions/workflow/status/stephane-caron/lpsolvers/docs.yml?branch=main&label=docs)](https://stephane-caron.github.io/lpsolvers/)
-[![Coverage](https://coveralls.io/repos/github/stephane-caron/lpsolvers/badge.svg?branch=main)](https://coveralls.io/github/stephane-caron/lpsolvers?branch=main)
-[![Conda version](https://img.shields.io/conda/vn/conda-forge/lpsolvers.svg)](https://anaconda.org/conda-forge/lpsolvers)
-[![PyPI version](https://img.shields.io/pypi/v/lpsolvers)](https://pypi.org/project/lpsolvers/)
+This repository has moved to Codeberg:
 
-Wrapper around Linear Programming (LP) solvers in Python, with a unified interface.
+<p align="center">
+  <a href="https://codeberg.org/stephane-caron/lpsolvers">
+    <img src="https://codeberg.org/Codeberg/GetItOnCodeberg/raw/branch/main/get-it-on-blue-on-white.png" alt="Get it on Codeberg" height="80">
+  </a>
+</p>
 
-## Installation
+Its new address is: **https://codeberg.org/stephane-caron/lpsolvers**
 
-### From conda-forge
+Codeberg is a Git hosting site based on [Forgejo](https://forgejo.org/), maintained by a non-profit organization and located in Berlin, Germany. Development, issues and pull requests now happen there. This repository is not mirrored.
 
-```console
-conda install -c conda-forge lpsolvers
+## For users
+
+Nothing changes for users installing via pip:
+
+```bash
+pip install lpsolvers
 ```
 
-### From PyPI
+## For contributors
 
-To install the library and all available LP solvers at the same time:
+If you have a local clone of this repository, you can point it at the new remote:
 
-```console
-pip install lpsolvers[open_source_solvers]
+```bash
+git remote set-url origin https://codeberg.org/stephane-caron/lpsolvers.git
 ```
 
-To install the library only, assuming LP solvers are installed separately: ``pip install lpsolvers``.
-
-## Usage
-
-The function [`solve_lp`](https://stephane-caron.github.io/lpsolvers//linear-programming.html#lpsolvers.solve_lp) is called with the ``solver`` keyword argument to select the backend solver. The linear program it solves is, in standard form:
-
-$$
-\begin{split}
-\begin{array}{ll}
-    \mbox{minimize} &
-        c^T x \\
-    \mbox{subject to}
-        & G x \leq h \\
-        & A x = b
-\end{array}
-\end{split}
-$$
-
-Vector inequalities are taken coordinate by coordinate.
-
-## Example
-
-To solve a linear program, build the matrices that define it and call the ``solve_lp`` function:
-
-```python
-from numpy import array
-from lpsolvers import solve_lp
-
-c = array([1., 2., 3.])
-G = array([[1., 2., -1.], [2., 0., 1.], [1., 2., 1.], [-1., -1., -1.]])
-h = array([4., 1., 3., 2.])
-
-x = solve_lp(c, G, h, solver="cvxopt")  # select solver here
-print(f"LP solution: {x=}")
-```
-
-This example outputs the solution ``[2.2, -0.8, -3.4]``.
-
-## Solvers
-
-The list of supported solvers currently includes:
-
-- [cdd](https://github.com/mcmtroffaes/pycddlib)
-- [CVXOPT](http://cvxopt.org/)
-- [CVXPY](https://www.cvxpy.org/) (interface)
-- [PDLP](https://developers.google.com/optimization/lp/pdlp_math)
-- [ProxQP](https://github.com/Simple-Robotics/proxsuite#proxqp)
+Issues and pull requests are welcome on [Codeberg](https://codeberg.org/stephane-caron/lpsolvers). This GitHub repository is archived and no longer receives updates.
